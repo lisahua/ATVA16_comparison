@@ -1,63 +1,48 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-struct ListNode{
-    int  value;
-    struct ListNode*  next;
+struct Entry{
+    int  element;
+    struct Entry*  next;
 };
 
 struct List {
     int size;
-    struct ListNode*  head;
+    struct Entry*  head;
 };
 void newList(struct List **_out) ;
 void reverse(struct List **l);
-void addFirst(struct List **l, int val);
-void newNode(int v, struct ListNode **_out);
-void insertSort(struct ListNode** head, struct ListNode** in);
+void newNode(struct Entry** out);
+void insertSort(struct List** l, int v);
+int hasLoop(struct List *l);
 
 void newList(struct List** l) {
     *l = malloc( sizeof(struct List)  );
-    (*l)->head = NULL;
+    newNode(&((*l)->head));
+    (*l)->head->next = (*l)->head;
     return;
 }
 
-void newNode(int v, struct ListNode **n){
-    *n = malloc(sizeof(struct ListNode));
-    (*n)->value = v;
+void newNode( struct Entry** n){
+    *n = malloc(sizeof(struct Entry));
+//    (*n)->element = v;
     (*n)->next = NULL;
 }
 
-
-void addFirst(struct List** l, int val) {
-    struct ListNode* n ;
-    newNode(val, &n);
-    n->next = (*l)->head;
-    (*l)->head = n;
-    return;
-}
-
-void  insertSort (struct ListNode** head, struct ListNode** in) {
-    if ((*head) == NULL) {
-        (*in)->next = NULL;
-        *head = *in;
-        return;
-    }
-    if ((*in)->value < (*head)->value) {
-        (*in)->next = (*head);
-        *head = *in;
-        return ;
-    }
-
-    struct ListNode* cur = (*head);
-    while (cur->next != NULL) {
-        if ((*in)->value < cur->next->value)
+void  insertSort (struct List** l, int v) {
+    struct Entry* in;
+    newNode(&in);
+    in->element = v;
+    struct Entry* e = (*l)->head;
+    while ( e->next != (*l)->head) {
+        if (e->next->element < v)
+            e = e->next;
+        else
             break;
-        cur = cur->next;
     }
-    (*in)->next = cur->next;
-    cur->next = (*in);
-    (*head) = *in;
+    in->next = e->next;
+    e->next = in;
+    (*l)->size = (*l)->size + 1;
 }
 
 
@@ -68,20 +53,21 @@ int main(int argc, char *argv[]) {
     struct List *l;
     newList(&l);
     char x[20];
-    struct ListNode* node;
+    struct Entry* node;
     while (fscanf(f,"%s",x)==1) {
         if (x[0] != '"') {
-            newNode(atoi(x),&node);
-            insertSort(&(l->head),&node);
+            //newNode(atoi(x),&node);
+            insertSort(&l,atoi(x));
         }
     }
     fclose(f);
 
     node = l->head;
-    while (node!=NULL) {
-        printf("%d ",node->value);
+    while (node->next != l->head) {
+        printf("%d ",node->next->element);
         node = node->next;
     }
+    printf(" %d",l->size);
     return 0;
 
 
