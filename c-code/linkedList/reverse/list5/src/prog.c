@@ -52,7 +52,8 @@ void reverse(struct List** l) {
     }
     struct Entry* ln1 = (*l)->head->next;
     struct Entry* ln2 = (*l)->head->next->next;
-    struct Entry* ln3 = (*l)->head;
+    struct Entry* ln3 = NULL;
+    //struct Entry* ln3 = (*l)->head;
     struct Entry* ln4 = NULL;
     while (ln2 != (*l)->head ) {
         ln4 = ln2->next;
@@ -62,7 +63,7 @@ void reverse(struct List** l) {
         ln2 = ln4;
     }
     (*l)->head->next = ln1;
-   // ln1->next = ln3;
+    ln1->next = ln3;
 }
 
 
