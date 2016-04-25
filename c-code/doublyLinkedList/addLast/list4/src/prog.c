@@ -44,14 +44,14 @@ void addFirst(struct List** l, struct Entry** e) {
     (*e)->previous = (*l)->head;
     (*e)->next = (*l)->head->next;
     (*e)->next->previous = *e;
-   // (*e)->previous->next = *e;
+    (*e)->previous->next = *e;
     (*l)->size = (*l)->size +1;
     return;
 }
 
 void addLast(struct List** l, struct Entry** e) {
     //    struct Entry* t = (*l)->head->next;
-    (*e)->previous = (*l)->head->previous;
+   // (*e)->previous = (*l)->head->previous;
     (*e)->next = (*l)->head;
     (*e)->next->previous = *e;
     (*e)->previous->next = *e;
@@ -137,7 +137,7 @@ int hasLoopPrev(struct List* l) {
              node = n4;
          if (strcmp(x,"H")==0)
              node = l->head;
-         addFirst(&l,&node);
+         addLast(&l,&node);
      }
     fclose(f);
 

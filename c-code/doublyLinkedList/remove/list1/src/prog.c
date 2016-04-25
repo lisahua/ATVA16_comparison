@@ -18,7 +18,7 @@ void newNode(struct Entry **_out);
 
 int hasLoopNext(struct List* l) ;
 int hasLoopNext(struct List* l) ;
-
+int removeEntry(struct List** l, char* rm);
 
 void newList(struct List** l) {
     *l = malloc( sizeof(struct List)  );
@@ -44,7 +44,8 @@ void addFirst(struct List** l, struct Entry** e) {
     (*e)->previous = (*l)->head;
     (*e)->next = (*l)->head->next;
     (*e)->next->previous = *e;
-   // (*e)->previous->next = *e;
+    (*e)->previous->next = *e;
+    // t->previous = e;
     (*l)->size = (*l)->size +1;
     return;
 }
@@ -55,6 +56,7 @@ void addLast(struct List** l, struct Entry** e) {
     (*e)->next = (*l)->head;
     (*e)->next->previous = *e;
     (*e)->previous->next = *e;
+    // t->previous = e;
     (*l)->size = (*l)->size +1;
     return;
 }
@@ -101,6 +103,20 @@ int hasLoopPrev(struct List* l) {
     return 1;
 }
 
+int removeEntry(struct List** l, char* rm) {
+    struct Entry* e = (*l)->head->next;
+    while (e != (*l)->head) {
+        if (strcmp(e->element,rm)!=0) {
+            e = e->next;
+            continue;
+        }
+        e->previous->next = e->next;
+        e->next->previous = e->previous;
+ //       (*l)->size = (*l)->size -1;
+        return 0;
+    }
+    return 1;
+}
 
  int main(int argc, char *argv[]) {
      if (argc<2) return 0;
@@ -122,11 +138,18 @@ int hasLoopPrev(struct List* l) {
      struct Entry* n4 ;
      newNode(&n4);
      n4->element = "N4";
-     int status = 0;
+     int status = -1;
      struct Entry* e = l->head;
+     char* rm=NULL;
      while (fscanf(f,"%s",x)==1) {
         if (x[0] == '"')
              continue;
+        if (status == -1) {
+            rm = (char*) malloc(sizeof (char) *  (strlen(x)+1));
+            strcpy(rm,x);
+        status =0;
+        continue;
+        }
          if (strcmp(x,"N1")==0)
              node = n1;
          if (strcmp(x,"N2")==0)
@@ -150,12 +173,12 @@ int hasLoopPrev(struct List* l) {
         printf("%s","HAS LOOP");
         return 0;
     }
-
+    printf("%d ",removeEntry(&l,rm));
     struct Entry* n = l->head->next;
     while (n != (l->head)) {
         printf("%s ", n->element);
         printf("%s ", n->previous->element);
-        printf("%s ", n->previous->element);
+        printf("%s ", n->next->element);
         n = n->next;
     }
     printf(" %d",l->size);
