@@ -1,0 +1,5 @@
+--seed 0
+--program prog.c
+--pos-tests 1
+--neg-tests 9
+--search brute
