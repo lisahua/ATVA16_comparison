@@ -48,8 +48,6 @@ void  insertSort (struct List** l, int v) {
 
 int main(int argc, char *argv[]) {
     if (argc<2) return 0;
- //   FILE *f = fopen(argv[1],"r");
- //   if (f==NULL) return 0;
     struct List *l;
     newList(&l);
     char* x = argv[1];
@@ -58,7 +56,6 @@ int main(int argc, char *argv[]) {
     struct Entry* node;
     while (tmp != (void*) 0) {
         if (tmp[0] == '"') continue;
-            //newNode(atoi(x),&node);
         insertSort(&l,atoi(tmp));
         tmp = strtok((void*) 0, " ");
     }
