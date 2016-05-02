@@ -1,0 +1,364 @@
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+Path env:  /home/fanl/Workspace/utils/llvm-build/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+cc -std=c99   -c -o prog.o prog.c
+['/home/fanl/Workspace/prophet/build/wrap/cc', '-std=c99', '-c', '-o', 'prog.o', 'prog.c']
+Invoking: /home/fanl/Workspace/utils/llvm-build/bin/clang -std=c99 -E -o /tmp/pclang_99631554.c prog.c
+Invoking: /home/fanl/Workspace/utils/llvm-build/bin/clang -Xclang -load -Xclang /home/fanl/Workspace/prophet/build/wrap/../src/.libs/libprofiler.so.0 -Xclang -plugin -Xclang err-profiler-gen -Xclang -plugin-arg-err-profiler-gen -Xclang /tmp/pclang_79990244.c -Xclang -plugin-arg-err-profiler-gen -Xclang /tmp/__index.loc -std=c99 -c -o prog.o prog.c
+Invoking: /home/fanl/Workspace/utils/llvm-build/bin/clang -Xclang -load -Xclang /home/fanl/Workspace/prophet/build/wrap/../src/.libs/libprofiler.so.0 -Xclang -plugin -Xclang err-profiler-rewrite  -Xclang -plugin-arg-err-profiler-rewrite -Xclang /tmp/pclang_79990244.c -Xclang -plugin-arg-err-profiler-rewrite -Xclang /tmp/pclang_16487664.c -std=c99 -c -o prog.o /tmp/pclang_99631554.c
+invoking: /home/fanl/Workspace/utils/llvm-build/bin/clang -I/home/fanl/Workspace/prophet/build/wrap/../include -std=c99 -c -o prog.o /tmp/pclang_16487664.c
+gcc -o prog prog.o
+['/home/fanl/Workspace/prophet/build/wrap/gcc', '-o', 'prog', 'prog.o']
+Path env:  /home/fanl/Workspace/prophet/build/wrap:/home/fanl/Workspace/utils/llvm-build/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+make: `prog' is up to date.
+Path env:  /home/fanl/Workspace/utils/llvm-build/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+prog.c: In function ‘main’:
+prog.c:165:5: warning: repeated '#' flag in format [-Wformat=]
+     printf((" %##uni*##"), l->size);
+     ^
+prog.c:165:5: warning: '#' flag used with ‘%u’ gnu_printf format [-Wformat=]
+prog.c:168:5: warning: format ‘%d’ expects argument of type ‘int *’, but argument 2 has type ‘int’ [-Wformat=]
+     scanf(" %d", l->size);
+     ^
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+prog.c: In function ‘newList’:
+prog.c:32:14: error: ‘h’ undeclared (first use in this function)
+     newNode(&h);
+              ^
+prog.c:32:14: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [prog.o] Error 1
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+prog.c: In function ‘hasLoopPrev’:
+prog.c:110:13: error: ‘ln1’ undeclared (first use in this function)
+         if (ln1->previous == l->head)
+             ^
+prog.c:110:13: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [prog.o] Error 1
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+prog.c: In function ‘hasLoopPrev’:
+prog.c:114:13: error: ‘ln2’ undeclared (first use in this function)
+         if (ln2->previous == l->head || ln2->previous->previous == l->head)
+             ^
+prog.c:114:13: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [prog.o] Error 1
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+prog.c: In function ‘main’:
+prog.c:153:14: error: ‘node’ undeclared (first use in this function)
+              node = n1;
+              ^
+prog.c:153:14: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [prog.o] Error 1
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+prog.c: In function ‘main’:
+prog.c:136:15: error: ‘n1’ undeclared (first use in this function)
+      newNode(&n1);
+               ^
+prog.c:136:15: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [prog.o] Error 1
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+prog.c: In function ‘main’:
+prog.c:139:14: error: ‘n2’ undeclared (first use in this function)
+     newNode(&n2);
+              ^
+prog.c:139:14: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [prog.o] Error 1
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+prog.c: In function ‘main’:
+prog.c:142:15: error: ‘n3’ undeclared (first use in this function)
+      newNode(&n3);
+               ^
+prog.c:142:15: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [prog.o] Error 1
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+prog.c: In function ‘main’:
+prog.c:145:15: error: ‘n4’ undeclared (first use in this function)
+      newNode(&n4);
+               ^
+prog.c:145:15: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [prog.o] Error 1
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+prog.c: In function ‘main’:
+prog.c:144:10: warning: passing argument 1 of ‘printf’ from incompatible pointer type [enabled by default]
+          printf(&l, &node);
+          ^
+In file included from prog.c:2:0:
+/usr/include/stdio.h:362:12: note: expected ‘const char * restrict’ but argument is of type ‘struct List **’
+ extern int printf (const char *__restrict __format, ...);
+            ^
+prog.c:147:10: warning: passing argument 1 of ‘printf’ from incompatible pointer type [enabled by default]
+          printf(&l, &node);
+          ^
+In file included from prog.c:2:0:
+/usr/include/stdio.h:362:12: note: expected ‘const char * restrict’ but argument is of type ‘struct List **’
+ extern int printf (const char *__restrict __format, ...);
+            ^
+prog.c:150:10: warning: passing argument 1 of ‘scanf’ from incompatible pointer type [enabled by default]
+          scanf(&l, &node);
+          ^
+In file included from /usr/include/features.h:374:0,
+                 from /usr/include/stdio.h:27,
+                 from prog.c:2:
+/usr/include/stdio.h:446:12: note: expected ‘const char * restrict’ but argument is of type ‘struct List **’
+ extern int __REDIRECT (scanf, (const char *__restrict __format, ...),
+            ^
+prog.c:153:10: warning: passing argument 1 of ‘scanf’ from incompatible pointer type [enabled by default]
+          scanf(&l, &node);
+          ^
+In file included from /usr/include/features.h:374:0,
+                 from /usr/include/stdio.h:27,
+                 from prog.c:2:
+/usr/include/stdio.h:446:12: note: expected ‘const char * restrict’ but argument is of type ‘struct List **’
+ extern int __REDIRECT (scanf, (const char *__restrict __format, ...),
+            ^
+prog.c:156:10: warning: passing argument 1 of ‘scanf’ from incompatible pointer type [enabled by default]
+          scanf(&l, &node);
+          ^
+In file included from /usr/include/features.h:374:0,
+                 from /usr/include/stdio.h:27,
+                 from prog.c:2:
+/usr/include/stdio.h:446:12: note: expected ‘const char * restrict’ but argument is of type ‘struct List **’
+ extern int __REDIRECT (scanf, (const char *__restrict __format, ...),
+            ^
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+prog.c: In function ‘main’:
+prog.c:185:12: error: ‘n’ undeclared (first use in this function)
+     while (n != (l->head)) {
+            ^
+prog.c:185:12: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [prog.o] Error 1
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+prog.c: In function ‘main’:
+prog.c:177:5: warning: format ‘%d’ expects argument of type ‘int *’, but argument 2 has type ‘int’ [-Wformat=]
+     scanf(" %d", l->size);
+     ^
+prog.c:180:5: warning: format ‘%d’ expects argument of type ‘int *’, but argument 2 has type ‘int’ [-Wformat=]
+     scanf(" %d", l->size);
+     ^
+prog.c:183:5: warning: passing argument 1 of ‘__overflow’ from incompatible pointer type [enabled by default]
+     __overflow(" %d", l->size);
+     ^
+In file included from /usr/include/stdio.h:74:0,
+                 from prog.c:2:
+/usr/include/libio.h:392:12: note: expected ‘struct _IO_FILE *’ but argument is of type ‘char *’
+ extern int __overflow (_IO_FILE *, int);
+            ^
+gcc -o prog prog.o
