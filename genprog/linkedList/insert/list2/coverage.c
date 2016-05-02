@@ -30,7 +30,7 @@ void newList(struct List **l )
   {
   if (_coverage_fout == 0) {
     {
-    _coverage_fout = fopen("/home/fanl/Documents/lisa/dataset/issre16_benchmark/genprog/linkedList/insert/list1/./coverage.path",
+    _coverage_fout = fopen("/home/fanl/Documents/lisa/dataset/issre16_benchmark/genprog/linkedList/insert/list2/./coverage.path",
                            "wb");
     }
   }
@@ -69,7 +69,7 @@ void newNode(struct Entry **n )
   {
   if (_coverage_fout == 0) {
     {
-    _coverage_fout = fopen("/home/fanl/Documents/lisa/dataset/issre16_benchmark/genprog/linkedList/insert/list1/./coverage.path",
+    _coverage_fout = fopen("/home/fanl/Documents/lisa/dataset/issre16_benchmark/genprog/linkedList/insert/list2/./coverage.path",
                            "wb");
     }
   }
@@ -104,7 +104,7 @@ void insertSort(struct List **l , int v )
   {
   if (_coverage_fout == 0) {
     {
-    _coverage_fout = fopen("/home/fanl/Documents/lisa/dataset/issre16_benchmark/genprog/linkedList/insert/list1/./coverage.path",
+    _coverage_fout = fopen("/home/fanl/Documents/lisa/dataset/issre16_benchmark/genprog/linkedList/insert/list2/./coverage.path",
                            "wb");
     }
   }
@@ -165,7 +165,7 @@ void insertSort(struct List **l , int v )
   fprintf(_coverage_fout, "19\n");
   fflush(_coverage_fout);
   }
-  e->next = in;
+  ((*l)->size) ++;
   {
   fprintf(_coverage_fout, "20\n");
   fflush(_coverage_fout);
@@ -189,7 +189,7 @@ int main(int argc , char **argv )
   {
   if (_coverage_fout == 0) {
     {
-    _coverage_fout = fopen("/home/fanl/Documents/lisa/dataset/issre16_benchmark/genprog/linkedList/insert/list1/./coverage.path",
+    _coverage_fout = fopen("/home/fanl/Documents/lisa/dataset/issre16_benchmark/genprog/linkedList/insert/list2/./coverage.path",
                            "wb");
     }
   }

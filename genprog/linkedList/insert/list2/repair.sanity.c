@@ -49,7 +49,7 @@ void insertSort(struct List **l , int v )
     }
   }
   in->next = e->next;
-  e->next = in;
+  ((*l)->size) ++;
   return;
 }
 }
