@@ -1,0 +1,26 @@
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+Path env:  /home/fanl/Workspace/utils/llvm-build/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+cc -std=c99   -c -o prog.o prog.c
+['/home/fanl/Workspace/prophet/build/wrap/cc', '-std=c99', '-c', '-o', 'prog.o', 'prog.c']
+Invoking: /home/fanl/Workspace/utils/llvm-build/bin/clang -std=c99 -E -o /tmp/pclang_62694830.c prog.c
+Invoking: /home/fanl/Workspace/utils/llvm-build/bin/clang -Xclang -load -Xclang /home/fanl/Workspace/prophet/build/wrap/../src/.libs/libprofiler.so.0 -Xclang -plugin -Xclang err-profiler-gen -Xclang -plugin-arg-err-profiler-gen -Xclang /tmp/pclang_73561447.c -Xclang -plugin-arg-err-profiler-gen -Xclang /tmp/__index.loc -std=c99 -c -o prog.o prog.c
+Invoking: /home/fanl/Workspace/utils/llvm-build/bin/clang -Xclang -load -Xclang /home/fanl/Workspace/prophet/build/wrap/../src/.libs/libprofiler.so.0 -Xclang -plugin -Xclang err-profiler-rewrite  -Xclang -plugin-arg-err-profiler-rewrite -Xclang /tmp/pclang_73561447.c -Xclang -plugin-arg-err-profiler-rewrite -Xclang /tmp/pclang_34271619.c -std=c99 -c -o prog.o /tmp/pclang_62694830.c
+invoking: /home/fanl/Workspace/utils/llvm-build/bin/clang -I/home/fanl/Workspace/prophet/build/wrap/../include -std=c99 -c -o prog.o /tmp/pclang_34271619.c
+gcc -o prog prog.o
+['/home/fanl/Workspace/prophet/build/wrap/gcc', '-o', 'prog', 'prog.o']
+Path env:  /home/fanl/Workspace/prophet/build/wrap:/home/fanl/Workspace/utils/llvm-build/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+make: `prog' is up to date.
+Path env:  /home/fanl/Workspace/utils/llvm-build/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+prog.c: In function ‘main’:
+prog.c:217:9: warning: format not a string literal and no format arguments [-Wformat-security]
+         sscanf("%s ", n->next->element);
+         ^
+gcc -o prog prog.o

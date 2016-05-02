@@ -1,0 +1,158 @@
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+Path env:  /home/fanl/Workspace/utils/llvm-build/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+cc -std=c99   -c -o prog.o prog.c
+['/home/fanl/Workspace/prophet/build/wrap/cc', '-std=c99', '-c', '-o', 'prog.o', 'prog.c']
+Invoking: /home/fanl/Workspace/utils/llvm-build/bin/clang -std=c99 -E -o /tmp/pclang_81608974.c prog.c
+Invoking: /home/fanl/Workspace/utils/llvm-build/bin/clang -Xclang -load -Xclang /home/fanl/Workspace/prophet/build/wrap/../src/.libs/libprofiler.so.0 -Xclang -plugin -Xclang err-profiler-gen -Xclang -plugin-arg-err-profiler-gen -Xclang /tmp/pclang_50270408.c -Xclang -plugin-arg-err-profiler-gen -Xclang /tmp/__index.loc -std=c99 -c -o prog.o prog.c
+Invoking: /home/fanl/Workspace/utils/llvm-build/bin/clang -Xclang -load -Xclang /home/fanl/Workspace/prophet/build/wrap/../src/.libs/libprofiler.so.0 -Xclang -plugin -Xclang err-profiler-rewrite  -Xclang -plugin-arg-err-profiler-rewrite -Xclang /tmp/pclang_50270408.c -Xclang -plugin-arg-err-profiler-rewrite -Xclang /tmp/pclang_01948601.c -std=c99 -c -o prog.o /tmp/pclang_81608974.c
+invoking: /home/fanl/Workspace/utils/llvm-build/bin/clang -I/home/fanl/Workspace/prophet/build/wrap/../include -std=c99 -c -o prog.o /tmp/pclang_01948601.c
+gcc -o prog prog.o
+['/home/fanl/Workspace/prophet/build/wrap/gcc', '-o', 'prog', 'prog.o']
+Path env:  /home/fanl/Workspace/prophet/build/wrap:/home/fanl/Workspace/utils/llvm-build/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+make: `prog' is up to date.
+Path env:  /home/fanl/Workspace/utils/llvm-build/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+prog.c: In function ‘main’:
+prog.c:124:9: warning: passing argument 1 of ‘insertSort’ from incompatible pointer type [enabled by default]
+         insertSort("%d ", node->next->element);
+         ^
+prog.c:33:7: note: expected ‘struct List **’ but argument is of type ‘char *’
+ void  insertSort (struct List** l, int v) {
+       ^
+prog.c:127:9: warning: passing argument 1 of ‘insertSort’ from incompatible pointer type [enabled by default]
+         insertSort("%d ", node->next->element);
+         ^
+prog.c:33:7: note: expected ‘struct List **’ but argument is of type ‘char *’
+ void  insertSort (struct List** l, int v) {
+       ^
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+prog.c: In function ‘main’:
+prog.c:99:9: warning: format ‘%d’ expects argument of type ‘int *’, but argument 2 has type ‘int’ [-Wformat=]
+         scanf("%d ", node->next->element);
+         ^
+prog.c:102:9: warning: format ‘%d’ expects argument of type ‘int *’, but argument 2 has type ‘int’ [-Wformat=]
+         scanf("%d ", node->next->element);
+         ^
+prog.c:105:9: warning: format ‘%d’ expects argument of type ‘int *’, but argument 2 has type ‘int’ [-Wformat=]
+         scanf("%d ", node->next->element);
+         ^
+prog.c:108:9: warning: passing argument 1 of ‘__overflow’ from incompatible pointer type [enabled by default]
+         __overflow("%d ", node->next->element);
+         ^
+In file included from /usr/include/stdio.h:74:0,
+                 from prog.c:2:
+/usr/include/libio.h:392:12: note: expected ‘struct _IO_FILE *’ but argument is of type ‘char *’
+ extern int __overflow (_IO_FILE *, int);
+            ^
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+prog.c: In function ‘main’:
+prog.c:83:13: warning: format not a string literal and no format arguments [-Wformat-security]
+             insertSort(&l, scanf(x));
+             ^
+prog.c:86:13: warning: format not a string literal and no format arguments [-Wformat-security]
+             insertSort(&l, scanf(x));
+             ^
+prog.c:89:13: warning: passing argument 1 of ‘strchr’ from incompatible pointer type [enabled by default]
+             strchr(&l, atoi(x));
+             ^
+In file included from prog.c:4:0:
+/usr/include/string.h:236:14: note: expected ‘const char *’ but argument is of type ‘struct List **’
+ extern char *strchr (const char *__s, int __c)
+              ^
+prog.c:95:13: warning: format not a string literal and no format arguments [-Wformat-security]
+             insertSort(&l, printf(x));
+             ^
+prog.c:98:13: warning: format not a string literal and no format arguments [-Wformat-security]
+             insertSort(&l, scanf(x));
+             ^
+prog.c:101:13: warning: format not a string literal and no format arguments [-Wformat-security]
+             insertSort(&l, printf(x));
+             ^
+prog.c:104:13: warning: passing argument 1 of ‘strrchr’ from incompatible pointer type [enabled by default]
+             strrchr(&l, atoi(x));
+             ^
+In file included from prog.c:4:0:
+/usr/include/string.h:263:14: note: expected ‘const char *’ but argument is of type ‘struct List **’
+ extern char *strrchr (const char *__s, int __c)
+              ^
+prog.c:107:13: warning: passing argument 1 of ‘strrchr’ from incompatible pointer type [enabled by default]
+             strrchr(&l, atoi(x));
+             ^
+In file included from prog.c:4:0:
+/usr/include/string.h:263:14: note: expected ‘const char *’ but argument is of type ‘struct List **’
+ extern char *strrchr (const char *__s, int __c)
+              ^
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+prog.c: In function ‘main’:
+prog.c:93:5: warning: repeated '#' flag in format [-Wformat=]
+     printf((" %##uni*##"), l->size);
+     ^
+prog.c:93:5: warning: '#' flag used with ‘%u’ gnu_printf format [-Wformat=]
+prog.c:99:5: warning: format ‘%d’ expects argument of type ‘int *’, but argument 2 has type ‘int’ [-Wformat=]
+     scanf(" %d", l->size);
+     ^
+prog.c:107:5: warning: passing argument 1 of ‘insertSort’ from incompatible pointer type [enabled by default]
+     insertSort(" %d", l->size);
+     ^
+prog.c:33:7: note: expected ‘struct List **’ but argument is of type ‘char *’
+ void  insertSort (struct List** l, int v) {
+       ^
+prog.c:125:5: warning: passing argument 1 of ‘insertSort’ from incompatible pointer type [enabled by default]
+     insertSort(" %d", l->size);
+     ^
+prog.c:33:7: note: expected ‘struct List **’ but argument is of type ‘char *’
+ void  insertSort (struct List** l, int v) {
+       ^
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o

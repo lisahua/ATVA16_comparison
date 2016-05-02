@@ -1,0 +1,3261 @@
+Initialize the program!
+Verify Test Cases
+All passed!
+Done Verification
+Generating repair candidates!
+Processing prog.c
+Total 14 different repair schemas!!!!
+Total 18 different repair candidate templates for scoring!!!
+Trying different candidates!
+BasicTester pointer: 0xacf3658
+StringConstTester pointer: 0xad1ca10
+CondTester pointer: 0xacf4398
+Counter: 1
+Batcher Size:0
+Preprocess the following candidate with CondTester:
+Priority 5000
+At location prog.c:45
+--Src File: prog.c
+Fragment 0:
+if (!(__abst_hole(head, in)))
+    return;
+
+
+CondTester, a patch instance with id 0:
+//src_file:prog.c
+//Total frags: 1
+//CodeSeg 0:
+int __get_mutant(); int __is_neg(int, ...); int __abst_hole(); 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct ListNode{
+    int  value;
+    struct ListNode*  next;
+};
+
+struct List {
+    int size;
+    struct ListNode*  head;
+};
+void newList(struct List **_out) ;
+void reverse(struct List **l);
+void addFirst(struct List **l, int val);
+void newNode(int v, struct ListNode **_out);
+void insertSort(struct ListNode** head, struct ListNode** in);
+
+void newList(struct List** l) {
+    *l = malloc( sizeof(struct List)  );
+    (*l)->head = NULL;
+    return;
+}
+
+void newNode(int v, struct ListNode **n){
+    *n = malloc(sizeof(struct ListNode));
+    (*n)->value = v;
+    (*n)->next = NULL;
+}
+
+
+void addFirst(struct List** l, int val) {
+    struct ListNode* n ;
+    newNode(val, &n);
+    n->next = (*l)->head;
+    (*l)->head = n;
+    return;
+}
+
+void  insertSort (struct ListNode** head, struct ListNode** in) {
+    if ((*head) == NULL) {
+        (*in)->next = NULL;
+        *head = *in;
+        
+//Patch 0:
+if (!(__is_neg(2, &(head), sizeof (head), &(in), sizeof (in))))
+    return;
+
+//CodeSeg 1:
+    }
+    if ((*in)->value < (*head)->value) {
+        (*in)->next = (*head);
+        *head = *in;
+        return ;
+    }
+
+    struct ListNode* cur = (*head);
+    while (cur->next != NULL) {
+        if ((*in)->value < cur->next->value)
+            break;
+        cur = cur->next;
+    }
+    (*in)->next = cur->next;
+    cur->next = (*in);
+    (*head) = *in;
+}
+
+
+int main(int argc, char *argv[]) {
+    if (argc<2) return 0;
+    FILE *f = fopen(argv[1],"r");
+    if (f==NULL) return 0;
+    struct List *l;
+    newList(&l);
+    char x[20];
+    struct ListNode* node;
+    while (fscanf(f,"%s",x)==1) {
+        if (x[0] != '"') {
+            newNode(atoi(x),&node);
+            insertSort(&(l->head),&node);
+        }
+    }
+    fclose(f);
+
+    node = l->head;
+    while (node!=NULL) {
+        printf("%d ",node->value);
+        node = node->next;
+    }
+    return 0;
+
+
+}
+
+Spawn 1 instances, now Total 1
+Counter: 2
+Batcher Size:1
+Preprocess the following candidate with CondTester:
+Priority 5000
+At location prog.c:45
+--Src File: prog.c
+Fragment 0:
+if ((__abst_hole(head, in)))
+    return;
+return;
+
+
+CondTester, a patch instance with id 1:
+//src_file:prog.c
+//Total frags: 1
+//CodeSeg 0:
+int __get_mutant(); int __is_neg(int, ...); int __abst_hole(); 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct ListNode{
+    int  value;
+    struct ListNode*  next;
+};
+
+struct List {
+    int size;
+    struct ListNode*  head;
+};
+void newList(struct List **_out) ;
+void reverse(struct List **l);
+void addFirst(struct List **l, int val);
+void newNode(int v, struct ListNode **_out);
+void insertSort(struct ListNode** head, struct ListNode** in);
+
+void newList(struct List** l) {
+    *l = malloc( sizeof(struct List)  );
+    (*l)->head = NULL;
+    return;
+}
+
+void newNode(int v, struct ListNode **n){
+    *n = malloc(sizeof(struct ListNode));
+    (*n)->value = v;
+    (*n)->next = NULL;
+}
+
+
+void addFirst(struct List** l, int val) {
+    struct ListNode* n ;
+    newNode(val, &n);
+    n->next = (*l)->head;
+    (*l)->head = n;
+    return;
+}
+
+void  insertSort (struct ListNode** head, struct ListNode** in) {
+    if ((*head) == NULL) {
+        (*in)->next = NULL;
+        *head = *in;
+        
+//Patch 0:
+if ((__is_neg(2, &(head), sizeof (head), &(in), sizeof (in))))
+    return;
+return;
+
+//CodeSeg 1:
+    }
+    if ((*in)->value < (*head)->value) {
+        (*in)->next = (*head);
+        *head = *in;
+        return ;
+    }
+
+    struct ListNode* cur = (*head);
+    while (cur->next != NULL) {
+        if ((*in)->value < cur->next->value)
+            break;
+        cur = cur->next;
+    }
+    (*in)->next = cur->next;
+    cur->next = (*in);
+    (*head) = *in;
+}
+
+
+int main(int argc, char *argv[]) {
+    if (argc<2) return 0;
+    FILE *f = fopen(argv[1],"r");
+    if (f==NULL) return 0;
+    struct List *l;
+    newList(&l);
+    char x[20];
+    struct ListNode* node;
+    while (fscanf(f,"%s",x)==1) {
+        if (x[0] != '"') {
+            newNode(atoi(x),&node);
+            insertSort(&(l->head),&node);
+        }
+    }
+    fclose(f);
+
+    node = l->head;
+    while (node!=NULL) {
+        printf("%d ",node->value);
+        node = node->next;
+    }
+    return 0;
+
+
+}
+
+Spawn 1 instances, now Total 2
+Counter: 3
+Batcher Size:2
+Preprocess the following candidate with BasicTester:
+Priority -0
+At location prog.c:45
+--Src File: prog.c
+Fragment 0:
+(*head) = *(in);
+return;
+
+
+BasicTester, a patch instance with id 0:
+//src_file:prog.c
+//Total frags: 1
+//CodeSeg 0:
+int __get_mutant(); int __is_neg(int, ...); int __abst_hole(); 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct ListNode{
+    int  value;
+    struct ListNode*  next;
+};
+
+struct List {
+    int size;
+    struct ListNode*  head;
+};
+void newList(struct List **_out) ;
+void reverse(struct List **l);
+void addFirst(struct List **l, int val);
+void newNode(int v, struct ListNode **_out);
+void insertSort(struct ListNode** head, struct ListNode** in);
+
+void newList(struct List** l) {
+    *l = malloc( sizeof(struct List)  );
+    (*l)->head = NULL;
+    return;
+}
+
+void newNode(int v, struct ListNode **n){
+    *n = malloc(sizeof(struct ListNode));
+    (*n)->value = v;
+    (*n)->next = NULL;
+}
+
+
+void addFirst(struct List** l, int val) {
+    struct ListNode* n ;
+    newNode(val, &n);
+    n->next = (*l)->head;
+    (*l)->head = n;
+    return;
+}
+
+void  insertSort (struct ListNode** head, struct ListNode** in) {
+    if ((*head) == NULL) {
+        (*in)->next = NULL;
+        *head = *in;
+        
+//Patch 0:
+(*head) = *(in);
+return;
+
+//CodeSeg 1:
+    }
+    if ((*in)->value < (*head)->value) {
+        (*in)->next = (*head);
+        *head = *in;
+        return ;
+    }
+
+    struct ListNode* cur = (*head);
+    while (cur->next != NULL) {
+        if ((*in)->value < cur->next->value)
+            break;
+        cur = cur->next;
+    }
+    (*in)->next = cur->next;
+    cur->next = (*in);
+    (*head) = *in;
+}
+
+
+int main(int argc, char *argv[]) {
+    if (argc<2) return 0;
+    FILE *f = fopen(argv[1],"r");
+    if (f==NULL) return 0;
+    struct List *l;
+    newList(&l);
+    char x[20];
+    struct ListNode* node;
+    while (fscanf(f,"%s",x)==1) {
+        if (x[0] != '"') {
+            newNode(atoi(x),&node);
+            insertSort(&(l->head),&node);
+        }
+    }
+    fclose(f);
+
+    node = l->head;
+    while (node!=NULL) {
+        printf("%d ",node->value);
+        node = node->next;
+    }
+    return 0;
+
+
+}
+
+Spawn 1 instances, now Total 3
+Counter: 4
+Batcher Size:3
+Preprocess the following candidate with BasicTester:
+Priority -0
+At location prog.c:45
+--Src File: prog.c
+Fragment 0:
+(*in)->next = (*(in));
+return;
+
+
+BasicTester, a patch instance with id 1:
+//src_file:prog.c
+//Total frags: 1
+//CodeSeg 0:
+int __get_mutant(); int __is_neg(int, ...); int __abst_hole(); 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct ListNode{
+    int  value;
+    struct ListNode*  next;
+};
+
+struct List {
+    int size;
+    struct ListNode*  head;
+};
+void newList(struct List **_out) ;
+void reverse(struct List **l);
+void addFirst(struct List **l, int val);
+void newNode(int v, struct ListNode **_out);
+void insertSort(struct ListNode** head, struct ListNode** in);
+
+void newList(struct List** l) {
+    *l = malloc( sizeof(struct List)  );
+    (*l)->head = NULL;
+    return;
+}
+
+void newNode(int v, struct ListNode **n){
+    *n = malloc(sizeof(struct ListNode));
+    (*n)->value = v;
+    (*n)->next = NULL;
+}
+
+
+void addFirst(struct List** l, int val) {
+    struct ListNode* n ;
+    newNode(val, &n);
+    n->next = (*l)->head;
+    (*l)->head = n;
+    return;
+}
+
+void  insertSort (struct ListNode** head, struct ListNode** in) {
+    if ((*head) == NULL) {
+        (*in)->next = NULL;
+        *head = *in;
+        
+//Patch 0:
+(*in)->next = (*(in));
+return;
+
+//CodeSeg 1:
+    }
+    if ((*in)->value < (*head)->value) {
+        (*in)->next = (*head);
+        *head = *in;
+        return ;
+    }
+
+    struct ListNode* cur = (*head);
+    while (cur->next != NULL) {
+        if ((*in)->value < cur->next->value)
+            break;
+        cur = cur->next;
+    }
+    (*in)->next = cur->next;
+    cur->next = (*in);
+    (*head) = *in;
+}
+
+
+int main(int argc, char *argv[]) {
+    if (argc<2) return 0;
+    FILE *f = fopen(argv[1],"r");
+    if (f==NULL) return 0;
+    struct List *l;
+    newList(&l);
+    char x[20];
+    struct ListNode* node;
+    while (fscanf(f,"%s",x)==1) {
+        if (x[0] != '"') {
+            newNode(atoi(x),&node);
+            insertSort(&(l->head),&node);
+        }
+    }
+    fclose(f);
+
+    node = l->head;
+    while (node!=NULL) {
+        printf("%d ",node->value);
+        node = node->next;
+    }
+    return 0;
+
+
+}
+
+Spawn 1 instances, now Total 4
+Counter: 5
+Batcher Size:4
+Preprocess the following candidate with BasicTester:
+Priority -0
+At location prog.c:45
+--Src File: prog.c
+Fragment 0:
+if ((*in)->value < (*head)->value) {
+    (*in)->next = (*head);
+    *head = *in;
+    return;
+}
+return;
+
+
+BasicTester, a patch instance with id 2:
+//src_file:prog.c
+//Total frags: 1
+//CodeSeg 0:
+int __get_mutant(); int __is_neg(int, ...); int __abst_hole(); 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct ListNode{
+    int  value;
+    struct ListNode*  next;
+};
+
+struct List {
+    int size;
+    struct ListNode*  head;
+};
+void newList(struct List **_out) ;
+void reverse(struct List **l);
+void addFirst(struct List **l, int val);
+void newNode(int v, struct ListNode **_out);
+void insertSort(struct ListNode** head, struct ListNode** in);
+
+void newList(struct List** l) {
+    *l = malloc( sizeof(struct List)  );
+    (*l)->head = NULL;
+    return;
+}
+
+void newNode(int v, struct ListNode **n){
+    *n = malloc(sizeof(struct ListNode));
+    (*n)->value = v;
+    (*n)->next = NULL;
+}
+
+
+void addFirst(struct List** l, int val) {
+    struct ListNode* n ;
+    newNode(val, &n);
+    n->next = (*l)->head;
+    (*l)->head = n;
+    return;
+}
+
+void  insertSort (struct ListNode** head, struct ListNode** in) {
+    if ((*head) == NULL) {
+        (*in)->next = NULL;
+        *head = *in;
+        
+//Patch 0:
+if ((*in)->value < (*head)->value) {
+    (*in)->next = (*head);
+    *head = *in;
+    return;
+}
+return;
+
+//CodeSeg 1:
+    }
+    if ((*in)->value < (*head)->value) {
+        (*in)->next = (*head);
+        *head = *in;
+        return ;
+    }
+
+    struct ListNode* cur = (*head);
+    while (cur->next != NULL) {
+        if ((*in)->value < cur->next->value)
+            break;
+        cur = cur->next;
+    }
+    (*in)->next = cur->next;
+    cur->next = (*in);
+    (*head) = *in;
+}
+
+
+int main(int argc, char *argv[]) {
+    if (argc<2) return 0;
+    FILE *f = fopen(argv[1],"r");
+    if (f==NULL) return 0;
+    struct List *l;
+    newList(&l);
+    char x[20];
+    struct ListNode* node;
+    while (fscanf(f,"%s",x)==1) {
+        if (x[0] != '"') {
+            newNode(atoi(x),&node);
+            insertSort(&(l->head),&node);
+        }
+    }
+    fclose(f);
+
+    node = l->head;
+    while (node!=NULL) {
+        printf("%d ",node->value);
+        node = node->next;
+    }
+    return 0;
+
+
+}
+
+Spawn 1 instances, now Total 5
+Counter: 6
+Batcher Size:5
+Preprocess the following candidate with BasicTester:
+Priority -0
+At location prog.c:45
+--Src File: prog.c
+Fragment 0:
+if ((*head) == ((void *)0)) {
+    (*in)->next = ((void *)0);
+    *head = *in;
+    return;
+}
+return;
+
+
+BasicTester, a patch instance with id 3:
+//src_file:prog.c
+//Total frags: 1
+//CodeSeg 0:
+int __get_mutant(); int __is_neg(int, ...); int __abst_hole(); 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct ListNode{
+    int  value;
+    struct ListNode*  next;
+};
+
+struct List {
+    int size;
+    struct ListNode*  head;
+};
+void newList(struct List **_out) ;
+void reverse(struct List **l);
+void addFirst(struct List **l, int val);
+void newNode(int v, struct ListNode **_out);
+void insertSort(struct ListNode** head, struct ListNode** in);
+
+void newList(struct List** l) {
+    *l = malloc( sizeof(struct List)  );
+    (*l)->head = NULL;
+    return;
+}
+
+void newNode(int v, struct ListNode **n){
+    *n = malloc(sizeof(struct ListNode));
+    (*n)->value = v;
+    (*n)->next = NULL;
+}
+
+
+void addFirst(struct List** l, int val) {
+    struct ListNode* n ;
+    newNode(val, &n);
+    n->next = (*l)->head;
+    (*l)->head = n;
+    return;
+}
+
+void  insertSort (struct ListNode** head, struct ListNode** in) {
+    if ((*head) == NULL) {
+        (*in)->next = NULL;
+        *head = *in;
+        
+//Patch 0:
+if ((*head) == ((void *)0)) {
+    (*in)->next = ((void *)0);
+    *head = *in;
+    return;
+}
+return;
+
+//CodeSeg 1:
+    }
+    if ((*in)->value < (*head)->value) {
+        (*in)->next = (*head);
+        *head = *in;
+        return ;
+    }
+
+    struct ListNode* cur = (*head);
+    while (cur->next != NULL) {
+        if ((*in)->value < cur->next->value)
+            break;
+        cur = cur->next;
+    }
+    (*in)->next = cur->next;
+    cur->next = (*in);
+    (*head) = *in;
+}
+
+
+int main(int argc, char *argv[]) {
+    if (argc<2) return 0;
+    FILE *f = fopen(argv[1],"r");
+    if (f==NULL) return 0;
+    struct List *l;
+    newList(&l);
+    char x[20];
+    struct ListNode* node;
+    while (fscanf(f,"%s",x)==1) {
+        if (x[0] != '"') {
+            newNode(atoi(x),&node);
+            insertSort(&(l->head),&node);
+        }
+    }
+    fclose(f);
+
+    node = l->head;
+    while (node!=NULL) {
+        printf("%d ",node->value);
+        node = node->next;
+    }
+    return 0;
+
+
+}
+
+Spawn 1 instances, now Total 6
+Counter: 7
+Batcher Size:6
+Preprocess the following candidate with BasicTester:
+Priority -0
+At location prog.c:45
+--Src File: prog.c
+Fragment 0:
+*head = *in;
+return;
+
+
+BasicTester, a patch instance with id 4:
+//src_file:prog.c
+//Total frags: 1
+//CodeSeg 0:
+int __get_mutant(); int __is_neg(int, ...); int __abst_hole(); 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct ListNode{
+    int  value;
+    struct ListNode*  next;
+};
+
+struct List {
+    int size;
+    struct ListNode*  head;
+};
+void newList(struct List **_out) ;
+void reverse(struct List **l);
+void addFirst(struct List **l, int val);
+void newNode(int v, struct ListNode **_out);
+void insertSort(struct ListNode** head, struct ListNode** in);
+
+void newList(struct List** l) {
+    *l = malloc( sizeof(struct List)  );
+    (*l)->head = NULL;
+    return;
+}
+
+void newNode(int v, struct ListNode **n){
+    *n = malloc(sizeof(struct ListNode));
+    (*n)->value = v;
+    (*n)->next = NULL;
+}
+
+
+void addFirst(struct List** l, int val) {
+    struct ListNode* n ;
+    newNode(val, &n);
+    n->next = (*l)->head;
+    (*l)->head = n;
+    return;
+}
+
+void  insertSort (struct ListNode** head, struct ListNode** in) {
+    if ((*head) == NULL) {
+        (*in)->next = NULL;
+        *head = *in;
+        
+//Patch 0:
+*head = *in;
+return;
+
+//CodeSeg 1:
+    }
+    if ((*in)->value < (*head)->value) {
+        (*in)->next = (*head);
+        *head = *in;
+        return ;
+    }
+
+    struct ListNode* cur = (*head);
+    while (cur->next != NULL) {
+        if ((*in)->value < cur->next->value)
+            break;
+        cur = cur->next;
+    }
+    (*in)->next = cur->next;
+    cur->next = (*in);
+    (*head) = *in;
+}
+
+
+int main(int argc, char *argv[]) {
+    if (argc<2) return 0;
+    FILE *f = fopen(argv[1],"r");
+    if (f==NULL) return 0;
+    struct List *l;
+    newList(&l);
+    char x[20];
+    struct ListNode* node;
+    while (fscanf(f,"%s",x)==1) {
+        if (x[0] != '"') {
+            newNode(atoi(x),&node);
+            insertSort(&(l->head),&node);
+        }
+    }
+    fclose(f);
+
+    node = l->head;
+    while (node!=NULL) {
+        printf("%d ",node->value);
+        node = node->next;
+    }
+    return 0;
+
+
+}
+
+Spawn 1 instances, now Total 7
+Counter: 8
+Batcher Size:7
+Preprocess the following candidate with BasicTester:
+Priority -0
+At location prog.c:45
+--Src File: prog.c
+Fragment 0:
+*head = *(in);
+return;
+
+
+BasicTester, a patch instance with id 5:
+//src_file:prog.c
+//Total frags: 1
+//CodeSeg 0:
+int __get_mutant(); int __is_neg(int, ...); int __abst_hole(); 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct ListNode{
+    int  value;
+    struct ListNode*  next;
+};
+
+struct List {
+    int size;
+    struct ListNode*  head;
+};
+void newList(struct List **_out) ;
+void reverse(struct List **l);
+void addFirst(struct List **l, int val);
+void newNode(int v, struct ListNode **_out);
+void insertSort(struct ListNode** head, struct ListNode** in);
+
+void newList(struct List** l) {
+    *l = malloc( sizeof(struct List)  );
+    (*l)->head = NULL;
+    return;
+}
+
+void newNode(int v, struct ListNode **n){
+    *n = malloc(sizeof(struct ListNode));
+    (*n)->value = v;
+    (*n)->next = NULL;
+}
+
+
+void addFirst(struct List** l, int val) {
+    struct ListNode* n ;
+    newNode(val, &n);
+    n->next = (*l)->head;
+    (*l)->head = n;
+    return;
+}
+
+void  insertSort (struct ListNode** head, struct ListNode** in) {
+    if ((*head) == NULL) {
+        (*in)->next = NULL;
+        *head = *in;
+        
+//Patch 0:
+*head = *(in);
+return;
+
+//CodeSeg 1:
+    }
+    if ((*in)->value < (*head)->value) {
+        (*in)->next = (*head);
+        *head = *in;
+        return ;
+    }
+
+    struct ListNode* cur = (*head);
+    while (cur->next != NULL) {
+        if ((*in)->value < cur->next->value)
+            break;
+        cur = cur->next;
+    }
+    (*in)->next = cur->next;
+    cur->next = (*in);
+    (*head) = *in;
+}
+
+
+int main(int argc, char *argv[]) {
+    if (argc<2) return 0;
+    FILE *f = fopen(argv[1],"r");
+    if (f==NULL) return 0;
+    struct List *l;
+    newList(&l);
+    char x[20];
+    struct ListNode* node;
+    while (fscanf(f,"%s",x)==1) {
+        if (x[0] != '"') {
+            newNode(atoi(x),&node);
+            insertSort(&(l->head),&node);
+        }
+    }
+    fclose(f);
+
+    node = l->head;
+    while (node!=NULL) {
+        printf("%d ",node->value);
+        node = node->next;
+    }
+    return 0;
+
+
+}
+
+Spawn 1 instances, now Total 8
+Counter: 9
+Batcher Size:8
+Preprocess the following candidate with BasicTester:
+Priority -0
+At location prog.c:45
+--Src File: prog.c
+Fragment 0:
+*head = *(head);
+return;
+
+
+BasicTester, a patch instance with id 6:
+//src_file:prog.c
+//Total frags: 1
+//CodeSeg 0:
+int __get_mutant(); int __is_neg(int, ...); int __abst_hole(); 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct ListNode{
+    int  value;
+    struct ListNode*  next;
+};
+
+struct List {
+    int size;
+    struct ListNode*  head;
+};
+void newList(struct List **_out) ;
+void reverse(struct List **l);
+void addFirst(struct List **l, int val);
+void newNode(int v, struct ListNode **_out);
+void insertSort(struct ListNode** head, struct ListNode** in);
+
+void newList(struct List** l) {
+    *l = malloc( sizeof(struct List)  );
+    (*l)->head = NULL;
+    return;
+}
+
+void newNode(int v, struct ListNode **n){
+    *n = malloc(sizeof(struct ListNode));
+    (*n)->value = v;
+    (*n)->next = NULL;
+}
+
+
+void addFirst(struct List** l, int val) {
+    struct ListNode* n ;
+    newNode(val, &n);
+    n->next = (*l)->head;
+    (*l)->head = n;
+    return;
+}
+
+void  insertSort (struct ListNode** head, struct ListNode** in) {
+    if ((*head) == NULL) {
+        (*in)->next = NULL;
+        *head = *in;
+        
+//Patch 0:
+*head = *(head);
+return;
+
+//CodeSeg 1:
+    }
+    if ((*in)->value < (*head)->value) {
+        (*in)->next = (*head);
+        *head = *in;
+        return ;
+    }
+
+    struct ListNode* cur = (*head);
+    while (cur->next != NULL) {
+        if ((*in)->value < cur->next->value)
+            break;
+        cur = cur->next;
+    }
+    (*in)->next = cur->next;
+    cur->next = (*in);
+    (*head) = *in;
+}
+
+
+int main(int argc, char *argv[]) {
+    if (argc<2) return 0;
+    FILE *f = fopen(argv[1],"r");
+    if (f==NULL) return 0;
+    struct List *l;
+    newList(&l);
+    char x[20];
+    struct ListNode* node;
+    while (fscanf(f,"%s",x)==1) {
+        if (x[0] != '"') {
+            newNode(atoi(x),&node);
+            insertSort(&(l->head),&node);
+        }
+    }
+    fclose(f);
+
+    node = l->head;
+    while (node!=NULL) {
+        printf("%d ",node->value);
+        node = node->next;
+    }
+    return 0;
+
+
+}
+
+Spawn 1 instances, now Total 9
+Counter: 10
+Batcher Size:9
+Preprocess the following candidate with BasicTester:
+Priority -0
+At location prog.c:45
+--Src File: prog.c
+Fragment 0:
+(*in)->next = (*(head));
+return;
+
+
+BasicTester, a patch instance with id 7:
+//src_file:prog.c
+//Total frags: 1
+//CodeSeg 0:
+int __get_mutant(); int __is_neg(int, ...); int __abst_hole(); 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct ListNode{
+    int  value;
+    struct ListNode*  next;
+};
+
+struct List {
+    int size;
+    struct ListNode*  head;
+};
+void newList(struct List **_out) ;
+void reverse(struct List **l);
+void addFirst(struct List **l, int val);
+void newNode(int v, struct ListNode **_out);
+void insertSort(struct ListNode** head, struct ListNode** in);
+
+void newList(struct List** l) {
+    *l = malloc( sizeof(struct List)  );
+    (*l)->head = NULL;
+    return;
+}
+
+void newNode(int v, struct ListNode **n){
+    *n = malloc(sizeof(struct ListNode));
+    (*n)->value = v;
+    (*n)->next = NULL;
+}
+
+
+void addFirst(struct List** l, int val) {
+    struct ListNode* n ;
+    newNode(val, &n);
+    n->next = (*l)->head;
+    (*l)->head = n;
+    return;
+}
+
+void  insertSort (struct ListNode** head, struct ListNode** in) {
+    if ((*head) == NULL) {
+        (*in)->next = NULL;
+        *head = *in;
+        
+//Patch 0:
+(*in)->next = (*(head));
+return;
+
+//CodeSeg 1:
+    }
+    if ((*in)->value < (*head)->value) {
+        (*in)->next = (*head);
+        *head = *in;
+        return ;
+    }
+
+    struct ListNode* cur = (*head);
+    while (cur->next != NULL) {
+        if ((*in)->value < cur->next->value)
+            break;
+        cur = cur->next;
+    }
+    (*in)->next = cur->next;
+    cur->next = (*in);
+    (*head) = *in;
+}
+
+
+int main(int argc, char *argv[]) {
+    if (argc<2) return 0;
+    FILE *f = fopen(argv[1],"r");
+    if (f==NULL) return 0;
+    struct List *l;
+    newList(&l);
+    char x[20];
+    struct ListNode* node;
+    while (fscanf(f,"%s",x)==1) {
+        if (x[0] != '"') {
+            newNode(atoi(x),&node);
+            insertSort(&(l->head),&node);
+        }
+    }
+    fclose(f);
+
+    node = l->head;
+    while (node!=NULL) {
+        printf("%d ",node->value);
+        node = node->next;
+    }
+    return 0;
+
+
+}
+
+Spawn 1 instances, now Total 10
+a batched test job starts!
+Building merged code:
+src_file: prog.c
+full src: int __get_mutant(); int __is_neg(int, ...); int __abst_hole(); 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct ListNode{
+    int  value;
+    struct ListNode*  next;
+};
+
+struct List {
+    int size;
+    struct ListNode*  head;
+};
+void newList(struct List **_out) ;
+void reverse(struct List **l);
+void addFirst(struct List **l, int val);
+void newNode(int v, struct ListNode **_out);
+void insertSort(struct ListNode** head, struct ListNode** in);
+
+void newList(struct List** l) {
+    *l = malloc( sizeof(struct List)  );
+    (*l)->head = NULL;
+    return;
+}
+
+void newNode(int v, struct ListNode **n){
+    *n = malloc(sizeof(struct ListNode));
+    (*n)->value = v;
+    (*n)->next = NULL;
+}
+
+
+void addFirst(struct List** l, int val) {
+    struct ListNode* n ;
+    newNode(val, &n);
+    n->next = (*l)->head;
+    (*l)->head = n;
+    return;
+}
+
+void  insertSort (struct ListNode** head, struct ListNode** in) {
+    if ((*head) == NULL) {
+        (*in)->next = NULL;
+        *head = *in;
+        //prophet generated patch
+        if (__get_mutant()==0) {
+        if (!(__is_neg(2, &(head), sizeof (head), &(in), sizeof (in))))
+            return;
+        }
+        else if (__get_mutant()==1) {
+        if ((__is_neg(2, &(head), sizeof (head), &(in), sizeof (in))))
+            return;
+        return;
+        }
+        else if (__get_mutant()==2) {
+        (*head) = *(in);
+        return;
+        }
+        else if (__get_mutant()==3) {
+        (*in)->next = (*(in));
+        return;
+        }
+        else if (__get_mutant()==4) {
+        if ((*in)->value < (*head)->value) {
+            (*in)->next = (*head);
+            *head = *in;
+            return;
+        }
+        return;
+        }
+        else if (__get_mutant()==5) {
+        if ((*head) == ((void *)0)) {
+            (*in)->next = ((void *)0);
+            *head = *in;
+            return;
+        }
+        return;
+        }
+        else if (__get_mutant()==6) {
+        *head = *in;
+        return;
+        }
+        else if (__get_mutant()==7) {
+        *head = *(in);
+        return;
+        }
+        else if (__get_mutant()==8) {
+        *head = *(head);
+        return;
+        }
+        else if (__get_mutant()==9) {
+        (*in)->next = (*(head));
+        return;
+        }
+    }
+    if ((*in)->value < (*head)->value) {
+        (*in)->next = (*head);
+        *head = *in;
+        return ;
+    }
+
+    struct ListNode* cur = (*head);
+    while (cur->next != NULL) {
+        if ((*in)->value < cur->next->value)
+            break;
+        cur = cur->next;
+    }
+    (*in)->next = cur->next;
+    cur->next = (*in);
+    (*head) = *in;
+}
+
+
+int main(int argc, char *argv[]) {
+    if (argc<2) return 0;
+    FILE *f = fopen(argv[1],"r");
+    if (f==NULL) return 0;
+    struct List *l;
+    newList(&l);
+    char x[20];
+    struct ListNode* node;
+    while (fscanf(f,"%s",x)==1) {
+        if (x[0] != '"') {
+            newNode(atoi(x),&node);
+            insertSort(&(l->head),&node);
+        }
+    }
+    fclose(f);
+
+    node = l->head;
+    while (node!=NULL) {
+        printf("%d ",node->value);
+        node = node->next;
+    }
+    return 0;
+
+
+}
+
+Merged code building succ, going to invoke tester!
+CondTester, Testing instance id 0:
+//src_file:prog.c
+//Total frags: 1
+//CodeSeg 0:
+int __get_mutant(); int __is_neg(int, ...); int __abst_hole(); 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct ListNode{
+    int  value;
+    struct ListNode*  next;
+};
+
+struct List {
+    int size;
+    struct ListNode*  head;
+};
+void newList(struct List **_out) ;
+void reverse(struct List **l);
+void addFirst(struct List **l, int val);
+void newNode(int v, struct ListNode **_out);
+void insertSort(struct ListNode** head, struct ListNode** in);
+
+void newList(struct List** l) {
+    *l = malloc( sizeof(struct List)  );
+    (*l)->head = NULL;
+    return;
+}
+
+void newNode(int v, struct ListNode **n){
+    *n = malloc(sizeof(struct ListNode));
+    (*n)->value = v;
+    (*n)->next = NULL;
+}
+
+
+void addFirst(struct List** l, int val) {
+    struct ListNode* n ;
+    newNode(val, &n);
+    n->next = (*l)->head;
+    (*l)->head = n;
+    return;
+}
+
+void  insertSort (struct ListNode** head, struct ListNode** in) {
+    if ((*head) == NULL) {
+        (*in)->next = NULL;
+        *head = *in;
+        
+//Patch 0:
+if (!(__is_neg(2, &(head), sizeof (head), &(in), sizeof (in))))
+    return;
+
+//CodeSeg 1:
+    }
+    if ((*in)->value < (*head)->value) {
+        (*in)->next = (*head);
+        *head = *in;
+        return ;
+    }
+
+    struct ListNode* cur = (*head);
+    while (cur->next != NULL) {
+        if ((*in)->value < cur->next->value)
+            break;
+        cur = cur->next;
+    }
+    (*in)->next = cur->next;
+    cur->next = (*in);
+    (*head) = *in;
+}
+
+
+int main(int argc, char *argv[]) {
+    if (argc<2) return 0;
+    FILE *f = fopen(argv[1],"r");
+    if (f==NULL) return 0;
+    struct List *l;
+    newList(&l);
+    char x[20];
+    struct ListNode* node;
+    while (fscanf(f,"%s",x)==1) {
+        if (x[0] != '"') {
+            newNode(atoi(x),&node);
+            insertSort(&(l->head),&node);
+        }
+    }
+    fclose(f);
+
+    node = l->head;
+    while (node!=NULL) {
+        printf("%d ",node->value);
+        node = node->next;
+    }
+    return 0;
+
+
+}
+
+Testing negative cases!
+Testing 1 (with abstract condition)
+Iteration 0
+Branch 0: 0
+Iteration 1
+Branch 0: 1
+CondTester, Testing instance id 1:
+//src_file:prog.c
+//Total frags: 1
+//CodeSeg 0:
+int __get_mutant(); int __is_neg(int, ...); int __abst_hole(); 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct ListNode{
+    int  value;
+    struct ListNode*  next;
+};
+
+struct List {
+    int size;
+    struct ListNode*  head;
+};
+void newList(struct List **_out) ;
+void reverse(struct List **l);
+void addFirst(struct List **l, int val);
+void newNode(int v, struct ListNode **_out);
+void insertSort(struct ListNode** head, struct ListNode** in);
+
+void newList(struct List** l) {
+    *l = malloc( sizeof(struct List)  );
+    (*l)->head = NULL;
+    return;
+}
+
+void newNode(int v, struct ListNode **n){
+    *n = malloc(sizeof(struct ListNode));
+    (*n)->value = v;
+    (*n)->next = NULL;
+}
+
+
+void addFirst(struct List** l, int val) {
+    struct ListNode* n ;
+    newNode(val, &n);
+    n->next = (*l)->head;
+    (*l)->head = n;
+    return;
+}
+
+void  insertSort (struct ListNode** head, struct ListNode** in) {
+    if ((*head) == NULL) {
+        (*in)->next = NULL;
+        *head = *in;
+        
+//Patch 0:
+if ((__is_neg(2, &(head), sizeof (head), &(in), sizeof (in))))
+    return;
+return;
+
+//CodeSeg 1:
+    }
+    if ((*in)->value < (*head)->value) {
+        (*in)->next = (*head);
+        *head = *in;
+        return ;
+    }
+
+    struct ListNode* cur = (*head);
+    while (cur->next != NULL) {
+        if ((*in)->value < cur->next->value)
+            break;
+        cur = cur->next;
+    }
+    (*in)->next = cur->next;
+    cur->next = (*in);
+    (*head) = *in;
+}
+
+
+int main(int argc, char *argv[]) {
+    if (argc<2) return 0;
+    FILE *f = fopen(argv[1],"r");
+    if (f==NULL) return 0;
+    struct List *l;
+    newList(&l);
+    char x[20];
+    struct ListNode* node;
+    while (fscanf(f,"%s",x)==1) {
+        if (x[0] != '"') {
+            newNode(atoi(x),&node);
+            insertSort(&(l->head),&node);
+        }
+    }
+    fclose(f);
+
+    node = l->head;
+    while (node!=NULL) {
+        printf("%d ",node->value);
+        node = node->next;
+    }
+    return 0;
+
+
+}
+
+Testing negative cases!
+Testing 1 (with abstract condition)
+Iteration 0
+Branch 0: 0
+Iteration 1
+Branch 0: 1
+BasicTester, Testing instance id 0:
+//src_file:prog.c
+//Total frags: 1
+//CodeSeg 0:
+int __get_mutant(); int __is_neg(int, ...); int __abst_hole(); 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct ListNode{
+    int  value;
+    struct ListNode*  next;
+};
+
+struct List {
+    int size;
+    struct ListNode*  head;
+};
+void newList(struct List **_out) ;
+void reverse(struct List **l);
+void addFirst(struct List **l, int val);
+void newNode(int v, struct ListNode **_out);
+void insertSort(struct ListNode** head, struct ListNode** in);
+
+void newList(struct List** l) {
+    *l = malloc( sizeof(struct List)  );
+    (*l)->head = NULL;
+    return;
+}
+
+void newNode(int v, struct ListNode **n){
+    *n = malloc(sizeof(struct ListNode));
+    (*n)->value = v;
+    (*n)->next = NULL;
+}
+
+
+void addFirst(struct List** l, int val) {
+    struct ListNode* n ;
+    newNode(val, &n);
+    n->next = (*l)->head;
+    (*l)->head = n;
+    return;
+}
+
+void  insertSort (struct ListNode** head, struct ListNode** in) {
+    if ((*head) == NULL) {
+        (*in)->next = NULL;
+        *head = *in;
+        
+//Patch 0:
+(*head) = *(in);
+return;
+
+//CodeSeg 1:
+    }
+    if ((*in)->value < (*head)->value) {
+        (*in)->next = (*head);
+        *head = *in;
+        return ;
+    }
+
+    struct ListNode* cur = (*head);
+    while (cur->next != NULL) {
+        if ((*in)->value < cur->next->value)
+            break;
+        cur = cur->next;
+    }
+    (*in)->next = cur->next;
+    cur->next = (*in);
+    (*head) = *in;
+}
+
+
+int main(int argc, char *argv[]) {
+    if (argc<2) return 0;
+    FILE *f = fopen(argv[1],"r");
+    if (f==NULL) return 0;
+    struct List *l;
+    newList(&l);
+    char x[20];
+    struct ListNode* node;
+    while (fscanf(f,"%s",x)==1) {
+        if (x[0] != '"') {
+            newNode(atoi(x),&node);
+            insertSort(&(l->head),&node);
+        }
+    }
+    fclose(f);
+
+    node = l->head;
+    while (node!=NULL) {
+        printf("%d ",node->value);
+        node = node->next;
+    }
+    return 0;
+
+
+}
+
+Testing negative cases!
+BasicTester, Testing instance id 1:
+//src_file:prog.c
+//Total frags: 1
+//CodeSeg 0:
+int __get_mutant(); int __is_neg(int, ...); int __abst_hole(); 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct ListNode{
+    int  value;
+    struct ListNode*  next;
+};
+
+struct List {
+    int size;
+    struct ListNode*  head;
+};
+void newList(struct List **_out) ;
+void reverse(struct List **l);
+void addFirst(struct List **l, int val);
+void newNode(int v, struct ListNode **_out);
+void insertSort(struct ListNode** head, struct ListNode** in);
+
+void newList(struct List** l) {
+    *l = malloc( sizeof(struct List)  );
+    (*l)->head = NULL;
+    return;
+}
+
+void newNode(int v, struct ListNode **n){
+    *n = malloc(sizeof(struct ListNode));
+    (*n)->value = v;
+    (*n)->next = NULL;
+}
+
+
+void addFirst(struct List** l, int val) {
+    struct ListNode* n ;
+    newNode(val, &n);
+    n->next = (*l)->head;
+    (*l)->head = n;
+    return;
+}
+
+void  insertSort (struct ListNode** head, struct ListNode** in) {
+    if ((*head) == NULL) {
+        (*in)->next = NULL;
+        *head = *in;
+        
+//Patch 0:
+(*in)->next = (*(in));
+return;
+
+//CodeSeg 1:
+    }
+    if ((*in)->value < (*head)->value) {
+        (*in)->next = (*head);
+        *head = *in;
+        return ;
+    }
+
+    struct ListNode* cur = (*head);
+    while (cur->next != NULL) {
+        if ((*in)->value < cur->next->value)
+            break;
+        cur = cur->next;
+    }
+    (*in)->next = cur->next;
+    cur->next = (*in);
+    (*head) = *in;
+}
+
+
+int main(int argc, char *argv[]) {
+    if (argc<2) return 0;
+    FILE *f = fopen(argv[1],"r");
+    if (f==NULL) return 0;
+    struct List *l;
+    newList(&l);
+    char x[20];
+    struct ListNode* node;
+    while (fscanf(f,"%s",x)==1) {
+        if (x[0] != '"') {
+            newNode(atoi(x),&node);
+            insertSort(&(l->head),&node);
+        }
+    }
+    fclose(f);
+
+    node = l->head;
+    while (node!=NULL) {
+        printf("%d ",node->value);
+        node = node->next;
+    }
+    return 0;
+
+
+}
+
+Testing negative cases!
+BasicTester, Testing instance id 2:
+//src_file:prog.c
+//Total frags: 1
+//CodeSeg 0:
+int __get_mutant(); int __is_neg(int, ...); int __abst_hole(); 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct ListNode{
+    int  value;
+    struct ListNode*  next;
+};
+
+struct List {
+    int size;
+    struct ListNode*  head;
+};
+void newList(struct List **_out) ;
+void reverse(struct List **l);
+void addFirst(struct List **l, int val);
+void newNode(int v, struct ListNode **_out);
+void insertSort(struct ListNode** head, struct ListNode** in);
+
+void newList(struct List** l) {
+    *l = malloc( sizeof(struct List)  );
+    (*l)->head = NULL;
+    return;
+}
+
+void newNode(int v, struct ListNode **n){
+    *n = malloc(sizeof(struct ListNode));
+    (*n)->value = v;
+    (*n)->next = NULL;
+}
+
+
+void addFirst(struct List** l, int val) {
+    struct ListNode* n ;
+    newNode(val, &n);
+    n->next = (*l)->head;
+    (*l)->head = n;
+    return;
+}
+
+void  insertSort (struct ListNode** head, struct ListNode** in) {
+    if ((*head) == NULL) {
+        (*in)->next = NULL;
+        *head = *in;
+        
+//Patch 0:
+if ((*in)->value < (*head)->value) {
+    (*in)->next = (*head);
+    *head = *in;
+    return;
+}
+return;
+
+//CodeSeg 1:
+    }
+    if ((*in)->value < (*head)->value) {
+        (*in)->next = (*head);
+        *head = *in;
+        return ;
+    }
+
+    struct ListNode* cur = (*head);
+    while (cur->next != NULL) {
+        if ((*in)->value < cur->next->value)
+            break;
+        cur = cur->next;
+    }
+    (*in)->next = cur->next;
+    cur->next = (*in);
+    (*head) = *in;
+}
+
+
+int main(int argc, char *argv[]) {
+    if (argc<2) return 0;
+    FILE *f = fopen(argv[1],"r");
+    if (f==NULL) return 0;
+    struct List *l;
+    newList(&l);
+    char x[20];
+    struct ListNode* node;
+    while (fscanf(f,"%s",x)==1) {
+        if (x[0] != '"') {
+            newNode(atoi(x),&node);
+            insertSort(&(l->head),&node);
+        }
+    }
+    fclose(f);
+
+    node = l->head;
+    while (node!=NULL) {
+        printf("%d ",node->value);
+        node = node->next;
+    }
+    return 0;
+
+
+}
+
+Testing negative cases!
+BasicTester, Testing instance id 3:
+//src_file:prog.c
+//Total frags: 1
+//CodeSeg 0:
+int __get_mutant(); int __is_neg(int, ...); int __abst_hole(); 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct ListNode{
+    int  value;
+    struct ListNode*  next;
+};
+
+struct List {
+    int size;
+    struct ListNode*  head;
+};
+void newList(struct List **_out) ;
+void reverse(struct List **l);
+void addFirst(struct List **l, int val);
+void newNode(int v, struct ListNode **_out);
+void insertSort(struct ListNode** head, struct ListNode** in);
+
+void newList(struct List** l) {
+    *l = malloc( sizeof(struct List)  );
+    (*l)->head = NULL;
+    return;
+}
+
+void newNode(int v, struct ListNode **n){
+    *n = malloc(sizeof(struct ListNode));
+    (*n)->value = v;
+    (*n)->next = NULL;
+}
+
+
+void addFirst(struct List** l, int val) {
+    struct ListNode* n ;
+    newNode(val, &n);
+    n->next = (*l)->head;
+    (*l)->head = n;
+    return;
+}
+
+void  insertSort (struct ListNode** head, struct ListNode** in) {
+    if ((*head) == NULL) {
+        (*in)->next = NULL;
+        *head = *in;
+        
+//Patch 0:
+if ((*head) == ((void *)0)) {
+    (*in)->next = ((void *)0);
+    *head = *in;
+    return;
+}
+return;
+
+//CodeSeg 1:
+    }
+    if ((*in)->value < (*head)->value) {
+        (*in)->next = (*head);
+        *head = *in;
+        return ;
+    }
+
+    struct ListNode* cur = (*head);
+    while (cur->next != NULL) {
+        if ((*in)->value < cur->next->value)
+            break;
+        cur = cur->next;
+    }
+    (*in)->next = cur->next;
+    cur->next = (*in);
+    (*head) = *in;
+}
+
+
+int main(int argc, char *argv[]) {
+    if (argc<2) return 0;
+    FILE *f = fopen(argv[1],"r");
+    if (f==NULL) return 0;
+    struct List *l;
+    newList(&l);
+    char x[20];
+    struct ListNode* node;
+    while (fscanf(f,"%s",x)==1) {
+        if (x[0] != '"') {
+            newNode(atoi(x),&node);
+            insertSort(&(l->head),&node);
+        }
+    }
+    fclose(f);
+
+    node = l->head;
+    while (node!=NULL) {
+        printf("%d ",node->value);
+        node = node->next;
+    }
+    return 0;
+
+
+}
+
+Testing negative cases!
+BasicTester, Testing instance id 4:
+//src_file:prog.c
+//Total frags: 1
+//CodeSeg 0:
+int __get_mutant(); int __is_neg(int, ...); int __abst_hole(); 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct ListNode{
+    int  value;
+    struct ListNode*  next;
+};
+
+struct List {
+    int size;
+    struct ListNode*  head;
+};
+void newList(struct List **_out) ;
+void reverse(struct List **l);
+void addFirst(struct List **l, int val);
+void newNode(int v, struct ListNode **_out);
+void insertSort(struct ListNode** head, struct ListNode** in);
+
+void newList(struct List** l) {
+    *l = malloc( sizeof(struct List)  );
+    (*l)->head = NULL;
+    return;
+}
+
+void newNode(int v, struct ListNode **n){
+    *n = malloc(sizeof(struct ListNode));
+    (*n)->value = v;
+    (*n)->next = NULL;
+}
+
+
+void addFirst(struct List** l, int val) {
+    struct ListNode* n ;
+    newNode(val, &n);
+    n->next = (*l)->head;
+    (*l)->head = n;
+    return;
+}
+
+void  insertSort (struct ListNode** head, struct ListNode** in) {
+    if ((*head) == NULL) {
+        (*in)->next = NULL;
+        *head = *in;
+        
+//Patch 0:
+*head = *in;
+return;
+
+//CodeSeg 1:
+    }
+    if ((*in)->value < (*head)->value) {
+        (*in)->next = (*head);
+        *head = *in;
+        return ;
+    }
+
+    struct ListNode* cur = (*head);
+    while (cur->next != NULL) {
+        if ((*in)->value < cur->next->value)
+            break;
+        cur = cur->next;
+    }
+    (*in)->next = cur->next;
+    cur->next = (*in);
+    (*head) = *in;
+}
+
+
+int main(int argc, char *argv[]) {
+    if (argc<2) return 0;
+    FILE *f = fopen(argv[1],"r");
+    if (f==NULL) return 0;
+    struct List *l;
+    newList(&l);
+    char x[20];
+    struct ListNode* node;
+    while (fscanf(f,"%s",x)==1) {
+        if (x[0] != '"') {
+            newNode(atoi(x),&node);
+            insertSort(&(l->head),&node);
+        }
+    }
+    fclose(f);
+
+    node = l->head;
+    while (node!=NULL) {
+        printf("%d ",node->value);
+        node = node->next;
+    }
+    return 0;
+
+
+}
+
+Testing negative cases!
+BasicTester, Testing instance id 5:
+//src_file:prog.c
+//Total frags: 1
+//CodeSeg 0:
+int __get_mutant(); int __is_neg(int, ...); int __abst_hole(); 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct ListNode{
+    int  value;
+    struct ListNode*  next;
+};
+
+struct List {
+    int size;
+    struct ListNode*  head;
+};
+void newList(struct List **_out) ;
+void reverse(struct List **l);
+void addFirst(struct List **l, int val);
+void newNode(int v, struct ListNode **_out);
+void insertSort(struct ListNode** head, struct ListNode** in);
+
+void newList(struct List** l) {
+    *l = malloc( sizeof(struct List)  );
+    (*l)->head = NULL;
+    return;
+}
+
+void newNode(int v, struct ListNode **n){
+    *n = malloc(sizeof(struct ListNode));
+    (*n)->value = v;
+    (*n)->next = NULL;
+}
+
+
+void addFirst(struct List** l, int val) {
+    struct ListNode* n ;
+    newNode(val, &n);
+    n->next = (*l)->head;
+    (*l)->head = n;
+    return;
+}
+
+void  insertSort (struct ListNode** head, struct ListNode** in) {
+    if ((*head) == NULL) {
+        (*in)->next = NULL;
+        *head = *in;
+        
+//Patch 0:
+*head = *(in);
+return;
+
+//CodeSeg 1:
+    }
+    if ((*in)->value < (*head)->value) {
+        (*in)->next = (*head);
+        *head = *in;
+        return ;
+    }
+
+    struct ListNode* cur = (*head);
+    while (cur->next != NULL) {
+        if ((*in)->value < cur->next->value)
+            break;
+        cur = cur->next;
+    }
+    (*in)->next = cur->next;
+    cur->next = (*in);
+    (*head) = *in;
+}
+
+
+int main(int argc, char *argv[]) {
+    if (argc<2) return 0;
+    FILE *f = fopen(argv[1],"r");
+    if (f==NULL) return 0;
+    struct List *l;
+    newList(&l);
+    char x[20];
+    struct ListNode* node;
+    while (fscanf(f,"%s",x)==1) {
+        if (x[0] != '"') {
+            newNode(atoi(x),&node);
+            insertSort(&(l->head),&node);
+        }
+    }
+    fclose(f);
+
+    node = l->head;
+    while (node!=NULL) {
+        printf("%d ",node->value);
+        node = node->next;
+    }
+    return 0;
+
+
+}
+
+Testing negative cases!
+BasicTester, Testing instance id 6:
+//src_file:prog.c
+//Total frags: 1
+//CodeSeg 0:
+int __get_mutant(); int __is_neg(int, ...); int __abst_hole(); 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct ListNode{
+    int  value;
+    struct ListNode*  next;
+};
+
+struct List {
+    int size;
+    struct ListNode*  head;
+};
+void newList(struct List **_out) ;
+void reverse(struct List **l);
+void addFirst(struct List **l, int val);
+void newNode(int v, struct ListNode **_out);
+void insertSort(struct ListNode** head, struct ListNode** in);
+
+void newList(struct List** l) {
+    *l = malloc( sizeof(struct List)  );
+    (*l)->head = NULL;
+    return;
+}
+
+void newNode(int v, struct ListNode **n){
+    *n = malloc(sizeof(struct ListNode));
+    (*n)->value = v;
+    (*n)->next = NULL;
+}
+
+
+void addFirst(struct List** l, int val) {
+    struct ListNode* n ;
+    newNode(val, &n);
+    n->next = (*l)->head;
+    (*l)->head = n;
+    return;
+}
+
+void  insertSort (struct ListNode** head, struct ListNode** in) {
+    if ((*head) == NULL) {
+        (*in)->next = NULL;
+        *head = *in;
+        
+//Patch 0:
+*head = *(head);
+return;
+
+//CodeSeg 1:
+    }
+    if ((*in)->value < (*head)->value) {
+        (*in)->next = (*head);
+        *head = *in;
+        return ;
+    }
+
+    struct ListNode* cur = (*head);
+    while (cur->next != NULL) {
+        if ((*in)->value < cur->next->value)
+            break;
+        cur = cur->next;
+    }
+    (*in)->next = cur->next;
+    cur->next = (*in);
+    (*head) = *in;
+}
+
+
+int main(int argc, char *argv[]) {
+    if (argc<2) return 0;
+    FILE *f = fopen(argv[1],"r");
+    if (f==NULL) return 0;
+    struct List *l;
+    newList(&l);
+    char x[20];
+    struct ListNode* node;
+    while (fscanf(f,"%s",x)==1) {
+        if (x[0] != '"') {
+            newNode(atoi(x),&node);
+            insertSort(&(l->head),&node);
+        }
+    }
+    fclose(f);
+
+    node = l->head;
+    while (node!=NULL) {
+        printf("%d ",node->value);
+        node = node->next;
+    }
+    return 0;
+
+
+}
+
+Testing negative cases!
+BasicTester, Testing instance id 7:
+//src_file:prog.c
+//Total frags: 1
+//CodeSeg 0:
+int __get_mutant(); int __is_neg(int, ...); int __abst_hole(); 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct ListNode{
+    int  value;
+    struct ListNode*  next;
+};
+
+struct List {
+    int size;
+    struct ListNode*  head;
+};
+void newList(struct List **_out) ;
+void reverse(struct List **l);
+void addFirst(struct List **l, int val);
+void newNode(int v, struct ListNode **_out);
+void insertSort(struct ListNode** head, struct ListNode** in);
+
+void newList(struct List** l) {
+    *l = malloc( sizeof(struct List)  );
+    (*l)->head = NULL;
+    return;
+}
+
+void newNode(int v, struct ListNode **n){
+    *n = malloc(sizeof(struct ListNode));
+    (*n)->value = v;
+    (*n)->next = NULL;
+}
+
+
+void addFirst(struct List** l, int val) {
+    struct ListNode* n ;
+    newNode(val, &n);
+    n->next = (*l)->head;
+    (*l)->head = n;
+    return;
+}
+
+void  insertSort (struct ListNode** head, struct ListNode** in) {
+    if ((*head) == NULL) {
+        (*in)->next = NULL;
+        *head = *in;
+        
+//Patch 0:
+(*in)->next = (*(head));
+return;
+
+//CodeSeg 1:
+    }
+    if ((*in)->value < (*head)->value) {
+        (*in)->next = (*head);
+        *head = *in;
+        return ;
+    }
+
+    struct ListNode* cur = (*head);
+    while (cur->next != NULL) {
+        if ((*in)->value < cur->next->value)
+            break;
+        cur = cur->next;
+    }
+    (*in)->next = cur->next;
+    cur->next = (*in);
+    (*head) = *in;
+}
+
+
+int main(int argc, char *argv[]) {
+    if (argc<2) return 0;
+    FILE *f = fopen(argv[1],"r");
+    if (f==NULL) return 0;
+    struct List *l;
+    newList(&l);
+    char x[20];
+    struct ListNode* node;
+    while (fscanf(f,"%s",x)==1) {
+        if (x[0] != '"') {
+            newNode(atoi(x),&node);
+            insertSort(&(l->head),&node);
+        }
+    }
+    fclose(f);
+
+    node = l->head;
+    while (node!=NULL) {
+        printf("%d ",node->value);
+        node = node->next;
+    }
+    return 0;
+
+
+}
+
+Testing negative cases!
+Counter: 11
+Batcher Size:0
+Preprocess the following candidate with BasicTester:
+Priority -0
+At location prog.c:45
+--Src File: prog.c
+Fragment 0:
+(*in)->next = (*head);
+return;
+
+
+BasicTester, a patch instance with id 8:
+//src_file:prog.c
+//Total frags: 1
+//CodeSeg 0:
+int __get_mutant(); int __is_neg(int, ...); int __abst_hole(); 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct ListNode{
+    int  value;
+    struct ListNode*  next;
+};
+
+struct List {
+    int size;
+    struct ListNode*  head;
+};
+void newList(struct List **_out) ;
+void reverse(struct List **l);
+void addFirst(struct List **l, int val);
+void newNode(int v, struct ListNode **_out);
+void insertSort(struct ListNode** head, struct ListNode** in);
+
+void newList(struct List** l) {
+    *l = malloc( sizeof(struct List)  );
+    (*l)->head = NULL;
+    return;
+}
+
+void newNode(int v, struct ListNode **n){
+    *n = malloc(sizeof(struct ListNode));
+    (*n)->value = v;
+    (*n)->next = NULL;
+}
+
+
+void addFirst(struct List** l, int val) {
+    struct ListNode* n ;
+    newNode(val, &n);
+    n->next = (*l)->head;
+    (*l)->head = n;
+    return;
+}
+
+void  insertSort (struct ListNode** head, struct ListNode** in) {
+    if ((*head) == NULL) {
+        (*in)->next = NULL;
+        *head = *in;
+        
+//Patch 0:
+(*in)->next = (*head);
+return;
+
+//CodeSeg 1:
+    }
+    if ((*in)->value < (*head)->value) {
+        (*in)->next = (*head);
+        *head = *in;
+        return ;
+    }
+
+    struct ListNode* cur = (*head);
+    while (cur->next != NULL) {
+        if ((*in)->value < cur->next->value)
+            break;
+        cur = cur->next;
+    }
+    (*in)->next = cur->next;
+    cur->next = (*in);
+    (*head) = *in;
+}
+
+
+int main(int argc, char *argv[]) {
+    if (argc<2) return 0;
+    FILE *f = fopen(argv[1],"r");
+    if (f==NULL) return 0;
+    struct List *l;
+    newList(&l);
+    char x[20];
+    struct ListNode* node;
+    while (fscanf(f,"%s",x)==1) {
+        if (x[0] != '"') {
+            newNode(atoi(x),&node);
+            insertSort(&(l->head),&node);
+        }
+    }
+    fclose(f);
+
+    node = l->head;
+    while (node!=NULL) {
+        printf("%d ",node->value);
+        node = node->next;
+    }
+    return 0;
+
+
+}
+
+Spawn 1 instances, now Total 11
+Counter: 12
+Batcher Size:1
+Preprocess the following candidate with BasicTester:
+Priority -0
+At location prog.c:45
+--Src File: prog.c
+Fragment 0:
+(*in)->next = ((void *)0);
+return;
+
+
+BasicTester, a patch instance with id 9:
+//src_file:prog.c
+//Total frags: 1
+//CodeSeg 0:
+int __get_mutant(); int __is_neg(int, ...); int __abst_hole(); 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct ListNode{
+    int  value;
+    struct ListNode*  next;
+};
+
+struct List {
+    int size;
+    struct ListNode*  head;
+};
+void newList(struct List **_out) ;
+void reverse(struct List **l);
+void addFirst(struct List **l, int val);
+void newNode(int v, struct ListNode **_out);
+void insertSort(struct ListNode** head, struct ListNode** in);
+
+void newList(struct List** l) {
+    *l = malloc( sizeof(struct List)  );
+    (*l)->head = NULL;
+    return;
+}
+
+void newNode(int v, struct ListNode **n){
+    *n = malloc(sizeof(struct ListNode));
+    (*n)->value = v;
+    (*n)->next = NULL;
+}
+
+
+void addFirst(struct List** l, int val) {
+    struct ListNode* n ;
+    newNode(val, &n);
+    n->next = (*l)->head;
+    (*l)->head = n;
+    return;
+}
+
+void  insertSort (struct ListNode** head, struct ListNode** in) {
+    if ((*head) == NULL) {
+        (*in)->next = NULL;
+        *head = *in;
+        
+//Patch 0:
+(*in)->next = ((void *)0);
+return;
+
+//CodeSeg 1:
+    }
+    if ((*in)->value < (*head)->value) {
+        (*in)->next = (*head);
+        *head = *in;
+        return ;
+    }
+
+    struct ListNode* cur = (*head);
+    while (cur->next != NULL) {
+        if ((*in)->value < cur->next->value)
+            break;
+        cur = cur->next;
+    }
+    (*in)->next = cur->next;
+    cur->next = (*in);
+    (*head) = *in;
+}
+
+
+int main(int argc, char *argv[]) {
+    if (argc<2) return 0;
+    FILE *f = fopen(argv[1],"r");
+    if (f==NULL) return 0;
+    struct List *l;
+    newList(&l);
+    char x[20];
+    struct ListNode* node;
+    while (fscanf(f,"%s",x)==1) {
+        if (x[0] != '"') {
+            newNode(atoi(x),&node);
+            insertSort(&(l->head),&node);
+        }
+    }
+    fclose(f);
+
+    node = l->head;
+    while (node!=NULL) {
+        printf("%d ",node->value);
+        node = node->next;
+    }
+    return 0;
+
+
+}
+
+Spawn 1 instances, now Total 12
+Counter: 13
+Batcher Size:2
+Preprocess the following candidate with BasicTester:
+Priority -0
+At location prog.c:45
+--Src File: prog.c
+Fragment 0:
+(*head) = *(head);
+return;
+
+
+BasicTester, a patch instance with id 10:
+//src_file:prog.c
+//Total frags: 1
+//CodeSeg 0:
+int __get_mutant(); int __is_neg(int, ...); int __abst_hole(); 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct ListNode{
+    int  value;
+    struct ListNode*  next;
+};
+
+struct List {
+    int size;
+    struct ListNode*  head;
+};
+void newList(struct List **_out) ;
+void reverse(struct List **l);
+void addFirst(struct List **l, int val);
+void newNode(int v, struct ListNode **_out);
+void insertSort(struct ListNode** head, struct ListNode** in);
+
+void newList(struct List** l) {
+    *l = malloc( sizeof(struct List)  );
+    (*l)->head = NULL;
+    return;
+}
+
+void newNode(int v, struct ListNode **n){
+    *n = malloc(sizeof(struct ListNode));
+    (*n)->value = v;
+    (*n)->next = NULL;
+}
+
+
+void addFirst(struct List** l, int val) {
+    struct ListNode* n ;
+    newNode(val, &n);
+    n->next = (*l)->head;
+    (*l)->head = n;
+    return;
+}
+
+void  insertSort (struct ListNode** head, struct ListNode** in) {
+    if ((*head) == NULL) {
+        (*in)->next = NULL;
+        *head = *in;
+        
+//Patch 0:
+(*head) = *(head);
+return;
+
+//CodeSeg 1:
+    }
+    if ((*in)->value < (*head)->value) {
+        (*in)->next = (*head);
+        *head = *in;
+        return ;
+    }
+
+    struct ListNode* cur = (*head);
+    while (cur->next != NULL) {
+        if ((*in)->value < cur->next->value)
+            break;
+        cur = cur->next;
+    }
+    (*in)->next = cur->next;
+    cur->next = (*in);
+    (*head) = *in;
+}
+
+
+int main(int argc, char *argv[]) {
+    if (argc<2) return 0;
+    FILE *f = fopen(argv[1],"r");
+    if (f==NULL) return 0;
+    struct List *l;
+    newList(&l);
+    char x[20];
+    struct ListNode* node;
+    while (fscanf(f,"%s",x)==1) {
+        if (x[0] != '"') {
+            newNode(atoi(x),&node);
+            insertSort(&(l->head),&node);
+        }
+    }
+    fclose(f);
+
+    node = l->head;
+    while (node!=NULL) {
+        printf("%d ",node->value);
+        node = node->next;
+    }
+    return 0;
+
+
+}
+
+Spawn 1 instances, now Total 13
+Counter: 14
+Batcher Size:3
+Preprocess the following candidate with BasicTester:
+Priority -0
+At location prog.c:45
+--Src File: prog.c
+Fragment 0:
+(*head) = *in;
+return;
+
+
+BasicTester, a patch instance with id 11:
+//src_file:prog.c
+//Total frags: 1
+//CodeSeg 0:
+int __get_mutant(); int __is_neg(int, ...); int __abst_hole(); 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct ListNode{
+    int  value;
+    struct ListNode*  next;
+};
+
+struct List {
+    int size;
+    struct ListNode*  head;
+};
+void newList(struct List **_out) ;
+void reverse(struct List **l);
+void addFirst(struct List **l, int val);
+void newNode(int v, struct ListNode **_out);
+void insertSort(struct ListNode** head, struct ListNode** in);
+
+void newList(struct List** l) {
+    *l = malloc( sizeof(struct List)  );
+    (*l)->head = NULL;
+    return;
+}
+
+void newNode(int v, struct ListNode **n){
+    *n = malloc(sizeof(struct ListNode));
+    (*n)->value = v;
+    (*n)->next = NULL;
+}
+
+
+void addFirst(struct List** l, int val) {
+    struct ListNode* n ;
+    newNode(val, &n);
+    n->next = (*l)->head;
+    (*l)->head = n;
+    return;
+}
+
+void  insertSort (struct ListNode** head, struct ListNode** in) {
+    if ((*head) == NULL) {
+        (*in)->next = NULL;
+        *head = *in;
+        
+//Patch 0:
+(*head) = *in;
+return;
+
+//CodeSeg 1:
+    }
+    if ((*in)->value < (*head)->value) {
+        (*in)->next = (*head);
+        *head = *in;
+        return ;
+    }
+
+    struct ListNode* cur = (*head);
+    while (cur->next != NULL) {
+        if ((*in)->value < cur->next->value)
+            break;
+        cur = cur->next;
+    }
+    (*in)->next = cur->next;
+    cur->next = (*in);
+    (*head) = *in;
+}
+
+
+int main(int argc, char *argv[]) {
+    if (argc<2) return 0;
+    FILE *f = fopen(argv[1],"r");
+    if (f==NULL) return 0;
+    struct List *l;
+    newList(&l);
+    char x[20];
+    struct ListNode* node;
+    while (fscanf(f,"%s",x)==1) {
+        if (x[0] != '"') {
+            newNode(atoi(x),&node);
+            insertSort(&(l->head),&node);
+        }
+    }
+    fclose(f);
+
+    node = l->head;
+    while (node!=NULL) {
+        printf("%d ",node->value);
+        node = node->next;
+    }
+    return 0;
+
+
+}
+
+Spawn 1 instances, now Total 14
+a batched test job starts!
+Building merged code:
+src_file: prog.c
+full src: int __get_mutant(); int __is_neg(int, ...); int __abst_hole(); 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct ListNode{
+    int  value;
+    struct ListNode*  next;
+};
+
+struct List {
+    int size;
+    struct ListNode*  head;
+};
+void newList(struct List **_out) ;
+void reverse(struct List **l);
+void addFirst(struct List **l, int val);
+void newNode(int v, struct ListNode **_out);
+void insertSort(struct ListNode** head, struct ListNode** in);
+
+void newList(struct List** l) {
+    *l = malloc( sizeof(struct List)  );
+    (*l)->head = NULL;
+    return;
+}
+
+void newNode(int v, struct ListNode **n){
+    *n = malloc(sizeof(struct ListNode));
+    (*n)->value = v;
+    (*n)->next = NULL;
+}
+
+
+void addFirst(struct List** l, int val) {
+    struct ListNode* n ;
+    newNode(val, &n);
+    n->next = (*l)->head;
+    (*l)->head = n;
+    return;
+}
+
+void  insertSort (struct ListNode** head, struct ListNode** in) {
+    if ((*head) == NULL) {
+        (*in)->next = NULL;
+        *head = *in;
+        //prophet generated patch
+        if (__get_mutant()==0) {
+        (*in)->next = (*head);
+        return;
+        }
+        else if (__get_mutant()==1) {
+        (*in)->next = ((void *)0);
+        return;
+        }
+        else if (__get_mutant()==2) {
+        (*head) = *(head);
+        return;
+        }
+        else if (__get_mutant()==3) {
+        (*head) = *in;
+        return;
+        }
+    }
+    if ((*in)->value < (*head)->value) {
+        (*in)->next = (*head);
+        *head = *in;
+        return ;
+    }
+
+    struct ListNode* cur = (*head);
+    while (cur->next != NULL) {
+        if ((*in)->value < cur->next->value)
+            break;
+        cur = cur->next;
+    }
+    (*in)->next = cur->next;
+    cur->next = (*in);
+    (*head) = *in;
+}
+
+
+int main(int argc, char *argv[]) {
+    if (argc<2) return 0;
+    FILE *f = fopen(argv[1],"r");
+    if (f==NULL) return 0;
+    struct List *l;
+    newList(&l);
+    char x[20];
+    struct ListNode* node;
+    while (fscanf(f,"%s",x)==1) {
+        if (x[0] != '"') {
+            newNode(atoi(x),&node);
+            insertSort(&(l->head),&node);
+        }
+    }
+    fclose(f);
+
+    node = l->head;
+    while (node!=NULL) {
+        printf("%d ",node->value);
+        node = node->next;
+    }
+    return 0;
+
+
+}
+
+Merged code building succ, going to invoke tester!
+BasicTester, Testing instance id 8:
+//src_file:prog.c
+//Total frags: 1
+//CodeSeg 0:
+int __get_mutant(); int __is_neg(int, ...); int __abst_hole(); 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct ListNode{
+    int  value;
+    struct ListNode*  next;
+};
+
+struct List {
+    int size;
+    struct ListNode*  head;
+};
+void newList(struct List **_out) ;
+void reverse(struct List **l);
+void addFirst(struct List **l, int val);
+void newNode(int v, struct ListNode **_out);
+void insertSort(struct ListNode** head, struct ListNode** in);
+
+void newList(struct List** l) {
+    *l = malloc( sizeof(struct List)  );
+    (*l)->head = NULL;
+    return;
+}
+
+void newNode(int v, struct ListNode **n){
+    *n = malloc(sizeof(struct ListNode));
+    (*n)->value = v;
+    (*n)->next = NULL;
+}
+
+
+void addFirst(struct List** l, int val) {
+    struct ListNode* n ;
+    newNode(val, &n);
+    n->next = (*l)->head;
+    (*l)->head = n;
+    return;
+}
+
+void  insertSort (struct ListNode** head, struct ListNode** in) {
+    if ((*head) == NULL) {
+        (*in)->next = NULL;
+        *head = *in;
+        
+//Patch 0:
+(*in)->next = (*head);
+return;
+
+//CodeSeg 1:
+    }
+    if ((*in)->value < (*head)->value) {
+        (*in)->next = (*head);
+        *head = *in;
+        return ;
+    }
+
+    struct ListNode* cur = (*head);
+    while (cur->next != NULL) {
+        if ((*in)->value < cur->next->value)
+            break;
+        cur = cur->next;
+    }
+    (*in)->next = cur->next;
+    cur->next = (*in);
+    (*head) = *in;
+}
+
+
+int main(int argc, char *argv[]) {
+    if (argc<2) return 0;
+    FILE *f = fopen(argv[1],"r");
+    if (f==NULL) return 0;
+    struct List *l;
+    newList(&l);
+    char x[20];
+    struct ListNode* node;
+    while (fscanf(f,"%s",x)==1) {
+        if (x[0] != '"') {
+            newNode(atoi(x),&node);
+            insertSort(&(l->head),&node);
+        }
+    }
+    fclose(f);
+
+    node = l->head;
+    while (node!=NULL) {
+        printf("%d ",node->value);
+        node = node->next;
+    }
+    return 0;
+
+
+}
+
+Testing negative cases!
+BasicTester, Testing instance id 9:
+//src_file:prog.c
+//Total frags: 1
+//CodeSeg 0:
+int __get_mutant(); int __is_neg(int, ...); int __abst_hole(); 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct ListNode{
+    int  value;
+    struct ListNode*  next;
+};
+
+struct List {
+    int size;
+    struct ListNode*  head;
+};
+void newList(struct List **_out) ;
+void reverse(struct List **l);
+void addFirst(struct List **l, int val);
+void newNode(int v, struct ListNode **_out);
+void insertSort(struct ListNode** head, struct ListNode** in);
+
+void newList(struct List** l) {
+    *l = malloc( sizeof(struct List)  );
+    (*l)->head = NULL;
+    return;
+}
+
+void newNode(int v, struct ListNode **n){
+    *n = malloc(sizeof(struct ListNode));
+    (*n)->value = v;
+    (*n)->next = NULL;
+}
+
+
+void addFirst(struct List** l, int val) {
+    struct ListNode* n ;
+    newNode(val, &n);
+    n->next = (*l)->head;
+    (*l)->head = n;
+    return;
+}
+
+void  insertSort (struct ListNode** head, struct ListNode** in) {
+    if ((*head) == NULL) {
+        (*in)->next = NULL;
+        *head = *in;
+        
+//Patch 0:
+(*in)->next = ((void *)0);
+return;
+
+//CodeSeg 1:
+    }
+    if ((*in)->value < (*head)->value) {
+        (*in)->next = (*head);
+        *head = *in;
+        return ;
+    }
+
+    struct ListNode* cur = (*head);
+    while (cur->next != NULL) {
+        if ((*in)->value < cur->next->value)
+            break;
+        cur = cur->next;
+    }
+    (*in)->next = cur->next;
+    cur->next = (*in);
+    (*head) = *in;
+}
+
+
+int main(int argc, char *argv[]) {
+    if (argc<2) return 0;
+    FILE *f = fopen(argv[1],"r");
+    if (f==NULL) return 0;
+    struct List *l;
+    newList(&l);
+    char x[20];
+    struct ListNode* node;
+    while (fscanf(f,"%s",x)==1) {
+        if (x[0] != '"') {
+            newNode(atoi(x),&node);
+            insertSort(&(l->head),&node);
+        }
+    }
+    fclose(f);
+
+    node = l->head;
+    while (node!=NULL) {
+        printf("%d ",node->value);
+        node = node->next;
+    }
+    return 0;
+
+
+}
+
+Testing negative cases!
+BasicTester, Testing instance id 10:
+//src_file:prog.c
+//Total frags: 1
+//CodeSeg 0:
+int __get_mutant(); int __is_neg(int, ...); int __abst_hole(); 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct ListNode{
+    int  value;
+    struct ListNode*  next;
+};
+
+struct List {
+    int size;
+    struct ListNode*  head;
+};
+void newList(struct List **_out) ;
+void reverse(struct List **l);
+void addFirst(struct List **l, int val);
+void newNode(int v, struct ListNode **_out);
+void insertSort(struct ListNode** head, struct ListNode** in);
+
+void newList(struct List** l) {
+    *l = malloc( sizeof(struct List)  );
+    (*l)->head = NULL;
+    return;
+}
+
+void newNode(int v, struct ListNode **n){
+    *n = malloc(sizeof(struct ListNode));
+    (*n)->value = v;
+    (*n)->next = NULL;
+}
+
+
+void addFirst(struct List** l, int val) {
+    struct ListNode* n ;
+    newNode(val, &n);
+    n->next = (*l)->head;
+    (*l)->head = n;
+    return;
+}
+
+void  insertSort (struct ListNode** head, struct ListNode** in) {
+    if ((*head) == NULL) {
+        (*in)->next = NULL;
+        *head = *in;
+        
+//Patch 0:
+(*head) = *(head);
+return;
+
+//CodeSeg 1:
+    }
+    if ((*in)->value < (*head)->value) {
+        (*in)->next = (*head);
+        *head = *in;
+        return ;
+    }
+
+    struct ListNode* cur = (*head);
+    while (cur->next != NULL) {
+        if ((*in)->value < cur->next->value)
+            break;
+        cur = cur->next;
+    }
+    (*in)->next = cur->next;
+    cur->next = (*in);
+    (*head) = *in;
+}
+
+
+int main(int argc, char *argv[]) {
+    if (argc<2) return 0;
+    FILE *f = fopen(argv[1],"r");
+    if (f==NULL) return 0;
+    struct List *l;
+    newList(&l);
+    char x[20];
+    struct ListNode* node;
+    while (fscanf(f,"%s",x)==1) {
+        if (x[0] != '"') {
+            newNode(atoi(x),&node);
+            insertSort(&(l->head),&node);
+        }
+    }
+    fclose(f);
+
+    node = l->head;
+    while (node!=NULL) {
+        printf("%d ",node->value);
+        node = node->next;
+    }
+    return 0;
+
+
+}
+
+Testing negative cases!
+BasicTester, Testing instance id 11:
+//src_file:prog.c
+//Total frags: 1
+//CodeSeg 0:
+int __get_mutant(); int __is_neg(int, ...); int __abst_hole(); 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct ListNode{
+    int  value;
+    struct ListNode*  next;
+};
+
+struct List {
+    int size;
+    struct ListNode*  head;
+};
+void newList(struct List **_out) ;
+void reverse(struct List **l);
+void addFirst(struct List **l, int val);
+void newNode(int v, struct ListNode **_out);
+void insertSort(struct ListNode** head, struct ListNode** in);
+
+void newList(struct List** l) {
+    *l = malloc( sizeof(struct List)  );
+    (*l)->head = NULL;
+    return;
+}
+
+void newNode(int v, struct ListNode **n){
+    *n = malloc(sizeof(struct ListNode));
+    (*n)->value = v;
+    (*n)->next = NULL;
+}
+
+
+void addFirst(struct List** l, int val) {
+    struct ListNode* n ;
+    newNode(val, &n);
+    n->next = (*l)->head;
+    (*l)->head = n;
+    return;
+}
+
+void  insertSort (struct ListNode** head, struct ListNode** in) {
+    if ((*head) == NULL) {
+        (*in)->next = NULL;
+        *head = *in;
+        
+//Patch 0:
+(*head) = *in;
+return;
+
+//CodeSeg 1:
+    }
+    if ((*in)->value < (*head)->value) {
+        (*in)->next = (*head);
+        *head = *in;
+        return ;
+    }
+
+    struct ListNode* cur = (*head);
+    while (cur->next != NULL) {
+        if ((*in)->value < cur->next->value)
+            break;
+        cur = cur->next;
+    }
+    (*in)->next = cur->next;
+    cur->next = (*in);
+    (*head) = *in;
+}
+
+
+int main(int argc, char *argv[]) {
+    if (argc<2) return 0;
+    FILE *f = fopen(argv[1],"r");
+    if (f==NULL) return 0;
+    struct List *l;
+    newList(&l);
+    char x[20];
+    struct ListNode* node;
+    while (fscanf(f,"%s",x)==1) {
+        if (x[0] != '"') {
+            newNode(atoi(x),&node);
+            insertSort(&(l->head),&node);
+        }
+    }
+    fclose(f);
+
+    node = l->head;
+    while (node!=NULL) {
+        printf("%d ",node->value);
+        node = node->next;
+    }
+    return 0;
+
+
+}
+
+Testing negative cases!
+Repair process ends without working fix!!
+Total 14 different repair schemas!!!!
+Total 18 different repair candidate templates for scoring!!!
+Total number of compiles: 2
+Total number of test eval: 18

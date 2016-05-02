@@ -1,0 +1,3 @@
+cc -std=c99   -c -o prog.o prog.c
+gcc -o prog prog.o
+Path env:  /home/fanl/Workspace/utils/llvm-build/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
