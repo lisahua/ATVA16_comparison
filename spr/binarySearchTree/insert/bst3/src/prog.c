@@ -40,13 +40,13 @@ int insertNode (struct Tree** t,  int k) {
     while (x != NULL) {
         y=x;
 
-        if (x->key==k) {
-            return 1;
-        }
+//        if (x->key==k) {
+//            return 1;
+//        }
 
         if ( k<x->key)
             x = x->left;
-         else if ( k>x->key)
+         else
             x = x->right;
     }
     newNode(&x);

@@ -38,7 +38,7 @@ int insertNode (struct Tree** t,  int k) {
     struct Node*  x = (*t)->root;
 
     while (x != NULL) {
-        y=x;
+//        y=x;
 
         if (x->key==k) {
             return 1;

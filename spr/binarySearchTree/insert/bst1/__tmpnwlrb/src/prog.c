@@ -61,7 +61,7 @@ int insertNode (struct Tree** t,  int k) {
             y->right = x;
     }
     x->parent = y;
-    (*t)->size = (*t)->size +1;
+  //  (*t)->size = (*t)->size +1;
     return 0;
 }
 
