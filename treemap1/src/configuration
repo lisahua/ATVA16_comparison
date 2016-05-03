@@ -1,6 +1,0 @@
---seed 0
---program prog.c
---pos-tests 8
---neg-tests 4
---search ga
---label-repair
