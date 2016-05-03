@@ -58,11 +58,11 @@ void reverse(struct List** l) {
         ln4 = ln2->next;
         ln1->next = ln3;
         ln3 = ln1;
-        ln1 = ln2;
+//        ln1 = ln2;
         ln2 = ln4;
     }
     (*l)->head->next = ln1;
-    ln1->next = ln3;
+//    ln1->next = ln3;
 }
 
 

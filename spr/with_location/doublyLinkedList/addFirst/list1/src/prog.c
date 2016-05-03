@@ -45,7 +45,6 @@ void addFirst(struct List** l, struct Entry** e) {
     (*e)->next = (*l)->head->next;
     (*e)->next->previous = *e;
     (*e)->previous->next = *e;
-    // t->previous = e;
 //    (*l)->size = (*l)->size +1;
     return;
 }

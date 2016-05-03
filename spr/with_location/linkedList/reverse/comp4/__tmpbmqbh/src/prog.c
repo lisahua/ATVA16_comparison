@@ -45,31 +45,24 @@ void  insertSort (struct List** l, int v) {
     (*l)->size = (*l)->size + 1;
 }
 
-int hasLoop(struct List* l) {
-    if (l->head->next == l->head)
-        return 1;
-    struct Entry* ln1 = l->head;
-    struct Entry* ln2 = l->head;
-    int count=0;
-    while (count <100) {
-    //    if (ln1->next == l->head)
-    //        return 1;
-    //    else
-        ln1 = ln1->next;
-        if (ln2->next == l->head || ln2->next->next == l->head)
-            return 1;
-        else
-            //prophet generated patch
-            {
-                if ((count == 99))
-                    return 0;
-                ln2 = ln2->next->next;
-            }
-   //     if (ln1==ln2)
-    //        return 0;
-        count = count+1;
+
+void reverse(struct List** l) {
+    if ((*l)->head->next == (*l)->head) {
+        return;
     }
-    exit(1);
+    struct Entry* ln1 = (*l)->head->next;
+    struct Entry* ln2 = (*l)->head->next->next;
+    struct Entry* ln3 = (*l)->head;
+    struct Entry* ln4 = NULL;
+    while (ln2 != (*l)->head ) {
+        ln4 = ln2->next;
+//        ln1->next = ln3;
+        ln3 = ln1;
+        ln1 = ln2;
+        ln2 = ln4;
+    }
+    (*l)->head->next = ln1;
+  //  ln1->next = ln3;
 }
 
 
@@ -81,35 +74,20 @@ int main(int argc, char *argv[]) {
     newList(&l);
     char x[20];
     struct Entry* node;
-    struct Entry* n1 ;
-    newNode(&n1);
-    struct Entry* n2 ;
-    newNode(&n2);
-    struct Entry* n3 ;
-    newNode(&n3);
-    struct Entry* n4 ;
-    newNode(&n4);
-    int status = 0;
-    struct Entry* e = l->head;
     while (fscanf(f,"%s",x)==1) {
-        if (x[0] == '"')
-            continue;
-        if (strcmp(x,"N1")==0)
-            node = n1;
-        if (strcmp(x,"N2")==0)
-            node = n2;
-        if (strcmp(x,"N3")==0)
-            node = n3;
-        if (strcmp(x,"N4")==0)
-            node = n4;
-        if (strcmp(x,"H")==0)
-            node = l->head;
-        e->next = node;
-        e = e->next;
+        if (x[0] != '"') {
+            //newNode(atoi(x),&node);
+            insertSort(&l,atoi(x));
+        }
     }
     fclose(f);
-
-    printf(" %d",hasLoop(l));
+    reverse(&l);
+    node = l->head;
+    while (node->next != l->head) {
+        printf("%d ",node->next->element);
+        node = node->next;
+    }
+    printf(" %d",l->size);
     return 0;
 
 

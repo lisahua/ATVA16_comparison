@@ -41,11 +41,10 @@ void newNode( struct Entry **n){
 
 void addFirst(struct List** l, struct Entry** e) {
     //    struct Entry* t = (*l)->head->next;
-    (*e)->previous = (*l)->head;
+  //  (*e)->previous = (*l)->head;
     (*e)->next = (*l)->head->next;
  //   (*e)->next->previous = *e;
-   // (*e)->previous->next = *e;
-    // t->previous = e;
+    (*e)->previous->next = *e;
     (*l)->size = (*l)->size +1;
     return;
 }
