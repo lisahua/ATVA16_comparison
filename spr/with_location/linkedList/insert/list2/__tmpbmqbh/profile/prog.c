@@ -25,7 +25,7 @@ void newList(struct List** l) {
 
 void newNode( struct Entry** n){
     *n = malloc(sizeof(struct Entry));
-    //    (*n)->element = v;
+//    (*n)->element = v;
     (*n)->next = NULL;
 }
 
@@ -40,29 +40,9 @@ void  insertSort (struct List** l, int v) {
         else
             break;
     }
-    in->next = e->next;
+//    in->next = e->next;
     e->next = in;
     (*l)->size = (*l)->size + 1;
-}
-
-
-void reverse(struct List** l) {
-    if ((*l)->head->next == (*l)->head) {
-        return;
-    }
-    struct Entry* ln1 = (*l)->head->next;
-    struct Entry* ln2 = (*l)->head->next->next;
-    struct Entry* ln3 = (*l)->head;
-    struct Entry* ln4 = NULL;
-    while (ln2 != (*l)->head ) {
-        ln4 = ln2->next;
-        ln1->next = ln3;
-    //    ln3 = ln1;
-//        ln1 = ln2;
-        ln2 = ln4;
-    }
-    (*l)->head->next = ln1;
-    ln1->next = ln3;
 }
 
 
@@ -81,9 +61,9 @@ int main(int argc, char *argv[]) {
         }
     }
     fclose(f);
-    reverse(&l);
-    node = l->head;
-    while (node->next != l->head) {
+
+    node = l->head->next;
+    while (node != NULL && node != l->head) {
         printf("%d ",node->next->element);
         node = node->next;
     }

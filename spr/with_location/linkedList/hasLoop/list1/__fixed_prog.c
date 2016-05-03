@@ -52,17 +52,19 @@ int hasLoop(struct List* l) {
     struct Entry* ln2 = l->head;
     int count=0;
     while (count <100) {
-        //prophet generated patch
-        if ((count == 99))
-            return 0;
         if (ln1->next == l->head)
             return 1;
         else
-            ln1 = ln1->next;
+        ln1 = ln1->next;
         if (ln2->next == l->head || ln2->next->next == l->head)
             return 1;
         else
-            ln2 = ln2->next->next;
+            //prophet generated patch
+            {
+                if ((count == 99))
+                    return 0;
+                ln2 = ln2->next->next;
+            }
        // if (ln1==ln2)
          //   return 0;
         count = count+1;
