@@ -56,7 +56,7 @@ int insertNode (struct Tree** t,  int k) {
         (*t)->root = x;
     else {
         //prophet generated patch
-        if ((y->key == 6))
+        if ((y->key == 2))
             return 1;
         if (k < y->key)
             y->left = x;
