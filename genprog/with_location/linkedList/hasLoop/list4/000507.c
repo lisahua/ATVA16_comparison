@@ -84,10 +84,18 @@ int hasLoop(struct List *l )
         ln2 = (ln2->next)->next;
       }
     }
-    __repair_app_85__78: /* CIL Label */ 
+    __repair_del_34__a14: /* CIL Label */ 
+    __repair_del_34__a13: /* CIL Label */ 
+    __repair_app_26__a12: /* CIL Label */ 
+    __repair_del_34__a11: /* CIL Label */ 
+    __repair_del_34__a10: /* CIL Label */ 
+    __repair_del_34__a0f: /* CIL Label */ 
+    __repair_del_34__a0e: /* CIL Label */ 
+    __repair_del_34__a0d: /* CIL Label */ 
+    __repair_del_34__a0c: /* CIL Label */ 
+    __repair_app_22__a0b: /* CIL Label */ 
     {
-    count ++;
-    return (0);
+
     }
   }
   exit(1);

@@ -1,25 +1,31 @@
 struct Entry {
-   int element ;
+   char *element ;
    struct Entry *next ;
+   struct Entry *previous ;
 };
 struct List {
    int size ;
    struct Entry *head ;
 };
 void newList(struct List **l ) ;
-extern void reverse(struct List **l ) ;
+void addFirst(struct List **l , struct Entry **e ) ;
+void addLast(struct List **l , struct Entry **e ) ;
 void newNode(struct Entry **n ) ;
-void insertSort(struct List **l , int v ) ;
-int hasLoop(struct List *l ) ;
+int hasLoopNext(struct List *l ) ;
 extern int ( /* missing proto */  malloc)() ;
 void newList(struct List **l ) 
 { int tmp ;
+  struct Entry *h ;
 
   {
   tmp = malloc(sizeof(struct List ));
   *l = (struct List *)tmp;
-  newNode(& (*l)->head);
+  newNode(& h);
+  (*l)->head = h;
+  ((*l)->head)->element = (char *)"H";
   ((*l)->head)->next = (*l)->head;
+  ((*l)->head)->previous = (*l)->head;
+  (*l)->size = 0;
   return;
 }
 }
@@ -30,35 +36,36 @@ void newNode(struct Entry **n )
   tmp = malloc(sizeof(struct Entry ));
   *n = (struct Entry *)tmp;
   (*n)->next = (struct Entry *)((void *)0);
+  (*n)->previous = (struct Entry *)((void *)0);
   return;
 }
 }
-void insertSort(struct List **l , int v ) 
-{ struct Entry *in ;
-  struct Entry *e ;
+void addFirst(struct List **l , struct Entry **e ) 
+{ 
 
   {
-  newNode(& in);
-  in->element = v;
-  e = (*l)->head;
-  while ((unsigned int )e->next != (unsigned int )(*l)->head) {
-    if ((e->next)->element < v) {
-      e = e->next;
-    } else {
-      break;
-    }
-  }
-  in->next = e->next;
-  e->next = in;
+  (*e)->next = ((*l)->head)->next;
+  ((*e)->next)->previous = *e;
+  ((*e)->previous)->next = *e;
   ((*l)->size) ++;
   return;
 }
 }
-extern int ( /* missing proto */  exit)() ;
-int hasLoop(struct List *l ) 
+void addLast(struct List **l , struct Entry **e ) 
+{ 
+
+  {
+  (*e)->previous = ((*l)->head)->previous;
+  (*e)->next = (*l)->head;
+  ((*e)->next)->previous = *e;
+  ((*e)->previous)->next = *e;
+  ((*l)->size) ++;
+  return;
+}
+}
+int hasLoopNext(struct List *l ) 
 { struct Entry *ln1 ;
   struct Entry *ln2 ;
-  int count ;
 
   {
   if ((unsigned int )(l->head)->next == (unsigned int )l->head) {
@@ -68,8 +75,7 @@ int hasLoop(struct List *l )
   }
   ln1 = l->head;
   ln2 = l->head;
-  count = 0;
-  while (count < 100) {
+  while (1) {
     if ((unsigned int )ln1->next == (unsigned int )l->head) {
       return (1);
     } else {
@@ -84,23 +90,59 @@ int hasLoop(struct List *l )
         ln2 = (ln2->next)->next;
       }
     }
-    __repair_app_85__78: /* CIL Label */ 
-    {
-    count ++;
-    return (0);
+    if ((unsigned int )ln1 == (unsigned int )ln2) {
+      return (0);
+    } else {
+
     }
   }
-  exit(1);
+  return (1);
+}
+}
+int hasLoopPrev(struct List *l ) 
+{ struct Entry *ln1 ;
+  struct Entry *ln2 ;
+
+  {
+  if ((unsigned int )(l->head)->previous == (unsigned int )l->head) {
+    return (1);
+  } else {
+
+  }
+  ln1 = l->head;
+  ln2 = l->head;
+  while (1) {
+    if ((unsigned int )ln1->previous == (unsigned int )l->head) {
+      return (1);
+    } else {
+      ln1 = ln1->previous;
+    }
+    if ((unsigned int )ln2->previous == (unsigned int )l->head) {
+      return (1);
+    } else {
+      if ((unsigned int )(ln2->previous)->previous == (unsigned int )l->head) {
+        return (1);
+      } else {
+        ln2 = (ln2->previous)->previous;
+      }
+    }
+    if ((unsigned int )ln1 == (unsigned int )ln2) {
+      return (0);
+    } else {
+
+    }
+  }
+  return (1);
 }
 }
 extern int ( /* missing proto */  strtok)() ;
 extern int ( /* missing proto */  strcmp)() ;
 extern int ( /* missing proto */  printf)() ;
 int main(int argc , char **argv ) 
-{ char *x ;
+{ struct List *l ;
+  char *x ;
   char *tmp ;
   int tmp___0 ;
-  struct List *l ;
   struct Entry *node ;
   struct Entry *n1 ;
   struct Entry *n2 ;
@@ -115,6 +157,8 @@ int main(int argc , char **argv )
   int tmp___5 ;
   int tmp___6 ;
   int tmp___7 ;
+  int tmp___8 ;
+  struct Entry *n ;
 
   {
   if (argc < 2) {
@@ -122,14 +166,20 @@ int main(int argc , char **argv )
   } else {
 
   }
-  x = *(argv + 1);
+  newList(& l);
+  __repair_swap1_112__ee6: /* CIL Label */ 
+  newNode(& n3);
   tmp___0 = strtok(x, " ");
   tmp = (char *)tmp___0;
-  newList(& l);
   newNode(& n1);
+  n1->element = (char *)"N1";
   newNode(& n2);
-  newNode(& n3);
+  n2->element = (char *)"N2";
+  __repair_swap1_105__ee7: /* CIL Label */ 
+  x = *(argv + 1);
+  n3->element = (char *)"N3";
   newNode(& n4);
+  n4->element = (char *)"N4";
   status = 0;
   e = l->head;
   while ((unsigned int )tmp != (unsigned int )((void *)0)) {
@@ -168,13 +218,32 @@ int main(int argc , char **argv )
     } else {
 
     }
-    e->next = node;
-    e = e->next;
+    addFirst(& l, & node);
     tmp___6 = strtok((void *)0, " ");
     tmp = (char *)tmp___6;
   }
-  tmp___7 = hasLoop(l);
-  printf(" %d", tmp___7);
+  tmp___7 = hasLoopNext(l);
+  if (tmp___7 == 0) {
+    printf("%s", "HAS LOOP");
+    return (0);
+  } else {
+
+  }
+  tmp___8 = hasLoopPrev(l);
+  if (tmp___8 == 0) {
+    printf("%s", "HAS LOOP");
+    return (0);
+  } else {
+
+  }
+  n = (l->head)->next;
+  while ((unsigned int )n != (unsigned int )l->head) {
+    printf("%s ", n->element);
+    printf("%s ", (n->previous)->element);
+    printf("%s ", (n->previous)->element);
+    n = n->next;
+  }
+  printf(" %d", l->size);
   return (0);
 }
 }

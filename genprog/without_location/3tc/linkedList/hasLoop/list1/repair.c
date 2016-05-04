@@ -69,13 +69,12 @@ int hasLoop(struct List *l )
   ln1 = l->head;
   ln2 = l->head;
   count = 0;
-  __repair_app_88__2a1: /* CIL Label */ 
-  {
   while (count < 100) {
     if ((unsigned int )ln1->next == (unsigned int )l->head) {
       return (1);
     } else {
-      ln1 = ln1->next;
+      __repair_swap1_37__4e: /* CIL Label */ 
+      count ++;
     }
     if ((unsigned int )ln2->next == (unsigned int )l->head) {
       return (1);
@@ -91,9 +90,8 @@ int hasLoop(struct List *l )
     } else {
 
     }
-    count ++;
-  }
-  return (0);
+    __repair_swap1_26__4f: /* CIL Label */ 
+    ln1 = ln1->next;
   }
   exit(1);
 }

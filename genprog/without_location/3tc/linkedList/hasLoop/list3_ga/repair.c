@@ -69,11 +69,13 @@ int hasLoop(struct List *l )
   ln1 = l->head;
   ln2 = l->head;
   count = 0;
+  __repair_app_88__35: /* CIL Label */ 
+  {
   while (count < 100) {
     if ((unsigned int )ln1->next == (unsigned int )l->head) {
       return (1);
     } else {
-      ln1 = ln1->next;
+
     }
     if ((unsigned int )ln2->next == (unsigned int )l->head) {
       return (1);
@@ -84,11 +86,14 @@ int hasLoop(struct List *l )
         ln2 = (ln2->next)->next;
       }
     }
-    __repair_app_85__78: /* CIL Label */ 
-    {
-    count ++;
-    return (0);
+    if ((unsigned int )ln1 == (unsigned int )ln2) {
+      return (0);
+    } else {
+
     }
+    count ++;
+  }
+  return (0);
   }
   exit(1);
 }
@@ -146,7 +151,11 @@ int main(int argc , char **argv )
     }
     tmp___2 = strcmp(tmp, "N2");
     if (tmp___2 == 0) {
+      __repair_app_5__36: /* CIL Label */ 
+      {
       node = n2;
+      return;
+      }
     } else {
 
     }

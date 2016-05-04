@@ -81,14 +81,10 @@ int hasLoop(struct List *l )
       if ((unsigned int )(ln2->next)->next == (unsigned int )l->head) {
         return (1);
       } else {
-        ln2 = (ln2->next)->next;
+
       }
     }
-    __repair_app_85__78: /* CIL Label */ 
-    {
     count ++;
-    return (0);
-    }
   }
   exit(1);
 }
@@ -122,10 +118,12 @@ int main(int argc , char **argv )
   } else {
 
   }
-  x = *(argv + 1);
+  __repair_swap1_75__1487: /* CIL Label */ 
+  newList(& l);
   tmp___0 = strtok(x, " ");
   tmp = (char *)tmp___0;
-  newList(& l);
+  __repair_swap1_72__1488: /* CIL Label */ 
+  x = *(argv + 1);
   newNode(& n1);
   newNode(& n2);
   newNode(& n3);
