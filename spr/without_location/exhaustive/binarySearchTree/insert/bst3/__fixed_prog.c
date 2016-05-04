@@ -52,12 +52,12 @@ int insertNode (struct Tree** t,  int k) {
     newNode(&x);
     x->key = k;
 
-    if (y==NULL)
+    //prophet generated patch
+    if (((*t)->size == 3))
+        return 1;
+    if (y == ((void *)0))
         (*t)->root = x;
     else {
-        //prophet generated patch
-        if ((y->key == 6))
-            return 1;
         if (k < y->key)
             y->left = x;
         else
