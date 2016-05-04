@@ -50,18 +50,6 @@ void addFirst(struct List** l, struct Entry** e) {
     return;
 }
 
-void addLast(struct List** l, struct Entry** e) {
-    //    struct Entry* t = (*l)->head->next;
-    (*e)->previous = (*l)->head->previous;
-    (*e)->next = (*l)->head;
-    (*e)->next->previous = *e;
-    (*e)->previous->next = *e;
-    // t->previous = e;
-    (*l)->size = (*l)->size +1;
-    return;
-}
-
-
 int hasLoopNext(struct List* l) {
     if (l->head->next == l->head)
         return 1;

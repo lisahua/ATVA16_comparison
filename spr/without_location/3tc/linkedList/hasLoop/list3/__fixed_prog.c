@@ -61,7 +61,7 @@ int hasLoop(struct List* l) {
         else
             ln2 = ln2->next->next;
         //prophet generated patch
-        if ((ln1 == ln2) || (count == 99))
+        if ((ln1 == ln2) || (1))
             return 0;
         count = count+1;
     }

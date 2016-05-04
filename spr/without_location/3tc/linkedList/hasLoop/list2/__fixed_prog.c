@@ -60,8 +60,10 @@ int hasLoop(struct List* l) {
      //       return 1;
     //    else
             ln2 = ln2->next->next;
-        if (ln1==ln2)
-            return 0;
+        //prophet generated patch
+        if (!(count != 2))
+            if (ln1 == ln2)
+                return 0;
         count = count+1;
     }
     return 1;
@@ -87,8 +89,6 @@ int main(int argc, char *argv[]) {
     int status = 0;
     struct Entry* e = l->head;
     while (fscanf(f,"%s",x)==1) {
-        //prophet generated patch
-        e->next = (e);
         if (x[0] == '"')
             continue;
         if (strcmp(x,"N1")==0)

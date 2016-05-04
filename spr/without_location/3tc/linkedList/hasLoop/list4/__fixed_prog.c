@@ -53,7 +53,7 @@ int hasLoop(struct List* l) {
     int count=0;
     while (count <100) {
         //prophet generated patch
-        if ((count == 99))
+        if ((count == 95))
             return 0;
         if (ln1->next == l->head)
             return 1;
