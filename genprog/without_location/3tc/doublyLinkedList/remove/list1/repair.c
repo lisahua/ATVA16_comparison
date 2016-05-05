@@ -278,7 +278,7 @@ int main(int argc , char **argv )
   tmp___12 = removeEntry(& l, rm);
   printf("%d ", tmp___12);
   n = (l->head)->next;
-  __repair_app_125__655: /* CIL Label */ 
+  __repair_app_125__23b: /* CIL Label */ 
   {
   while ((unsigned int )n != (unsigned int )l->head) {
     printf("%s ", n->element);

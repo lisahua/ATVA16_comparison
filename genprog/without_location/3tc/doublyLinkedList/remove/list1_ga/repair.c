@@ -26,11 +26,7 @@ void newList(struct List **l )
   ((*l)->head)->element = (char *)"H";
   ((*l)->head)->next = (*l)->head;
   ((*l)->head)->previous = (*l)->head;
-  __repair_app_45__50b: /* CIL Label */ 
-  {
   (*l)->size = 0;
-  return (1);
-  }
   return;
 }
 }
@@ -52,12 +48,11 @@ void addFirst(struct List **l , struct Entry **e )
   (*e)->previous = (*l)->head;
   (*e)->next = ((*l)->head)->next;
   ((*e)->next)->previous = *e;
-  __repair_app_67__50c: /* CIL Label */ 
-  {
   ((*e)->previous)->next = *e;
-  return (0);
+  __repair_del_19__26: /* CIL Label */ 
+  {
+
   }
-  ((*l)->size) ++;
   return;
 }
 }
@@ -86,9 +81,10 @@ int hasLoopNext(struct List *l )
   ln1 = l->head;
   ln2 = l->head;
   while (1) {
-    __repair_del_37__50d: /* CIL Label */ 
-    {
-
+    if ((unsigned int )ln1->next == (unsigned int )l->head) {
+      return (1);
+    } else {
+      ln1 = ln1->next;
     }
     if ((unsigned int )ln2->next == (unsigned int )l->head) {
       return (1);
@@ -210,8 +206,7 @@ int main(int argc , char **argv )
   newNode(& n2);
   n2->element = (char *)"N2";
   newNode(& n3);
-  __repair_swap1_86__50e: /* CIL Label */ 
-  node = n1;
+  n3->element = (char *)"N3";
   newNode(& n4);
   n4->element = (char *)"N4";
   status = -1;
@@ -236,8 +231,9 @@ int main(int argc , char **argv )
 
     }
     tmp___4 = strcmp(tmp, "N1");
-    __repair_del_100__50f: /* CIL Label */ 
-    {
+    if (tmp___4 == 0) {
+      node = n1;
+    } else {
 
     }
     tmp___5 = strcmp(tmp, "N2");
@@ -247,8 +243,9 @@ int main(int argc , char **argv )
 
     }
     tmp___6 = strcmp(tmp, "N3");
-    __repair_del_104__510: /* CIL Label */ 
-    {
+    if (tmp___6 == 0) {
+      node = n3;
+    } else {
 
     }
     tmp___7 = strcmp(tmp, "N4");
