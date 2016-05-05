@@ -58,7 +58,6 @@ extern int ( /* missing proto */  exit)() ;
 int hasLoop(struct List *l ) 
 { struct Entry *ln1 ;
   struct Entry *ln2 ;
-  int count ;
 
   {
   if ((unsigned int )(l->head)->next == (unsigned int )l->head) {
@@ -68,14 +67,8 @@ int hasLoop(struct List *l )
   }
   ln1 = l->head;
   ln2 = l->head;
-  count = 0;
-  while (count < 100) {
-    if ((unsigned int )ln1->next == (unsigned int )l->head) {
-      return (1);
-    } else {
-      __repair_swap1_37__4e: /* CIL Label */ 
-      count ++;
-    }
+  while (1) {
+    __repair_swap1_29__8: /* CIL Label */ ;
     if ((unsigned int )ln2->next == (unsigned int )l->head) {
       return (1);
     } else {
@@ -88,10 +81,9 @@ int hasLoop(struct List *l )
     if ((unsigned int )ln1 == (unsigned int )ln2) {
       return (0);
     } else {
-
+      __repair_swap1_30__9: /* CIL Label */ 
+      ln1 = ln1->next;
     }
-    __repair_swap1_26__4f: /* CIL Label */ 
-    ln1 = ln1->next;
   }
   exit(1);
 }
