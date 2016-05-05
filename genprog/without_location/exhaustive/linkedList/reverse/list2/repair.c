@@ -64,15 +64,24 @@ void reverse(struct List **l )
   if ((unsigned int )((*l)->head)->next == (unsigned int )(*l)->head) {
     return;
   } else {
-    __repair_swap1_63__6: /* CIL Label */ 
-    return (0);
+
   }
   ln1 = ((*l)->head)->next;
   ln2 = (((*l)->head)->next)->next;
   ln3 = (*l)->head;
   ln4 = (struct Entry *)((void *)0);
   while ((unsigned int )ln2 != (unsigned int )(*l)->head) {
+    __repair_app_36__34d: /* CIL Label */ 
+    {
     ln4 = ln2->next;
+    while ((unsigned int )ln2 != (unsigned int )(*l)->head) {
+      ln4 = ln2->next;
+      ln1->next = ln3;
+      ln3 = ln1;
+      ln1 = ln2;
+      ln2 = ln4;
+    }
+    }
     ln1->next = ln3;
     ln3 = ln1;
     ln1 = ln2;
@@ -122,6 +131,6 @@ int main(int argc , char **argv )
     node = node->next;
   }
   printf(" %d", l->size);
-  __repair_swap1_23__7: /* CIL Label */ ;
+  return (0);
 }
 }

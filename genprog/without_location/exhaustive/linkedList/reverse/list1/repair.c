@@ -61,11 +61,6 @@ void reverse(struct List **l )
   struct Entry *ln4 ;
 
   {
-  if ((unsigned int )((*l)->head)->next == (unsigned int )(*l)->head) {
-    return;
-  } else {
-    return (0);
-  }
   ln1 = ((*l)->head)->next;
   ln2 = (((*l)->head)->next)->next;
   ln3 = (*l)->head;
@@ -77,7 +72,11 @@ void reverse(struct List **l )
     ln1 = ln2;
     ln2 = ln4;
   }
+  __repair_app_25__21a: /* CIL Label */ 
+  {
   ((*l)->head)->next = ln1;
+  ln1->next = ln3;
+  }
   return;
 }
 }
@@ -121,6 +120,6 @@ int main(int argc , char **argv )
     node = node->next;
   }
   printf(" %d", l->size);
-
+  return (0);
 }
 }
