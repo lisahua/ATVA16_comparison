@@ -1,0 +1,120 @@
+/* BEGIN PACKAGE ANONYMOUS*/
+struct Entry {
+    Entry next;
+    int element;
+}
+struct LinkedList {
+    Entry head;
+    int size;
+}
+/*ll_reve..err2.sk16:12*/
+
+void insertHarness ()/*ll_reve..err2.sk16:12*/
+{
+  LinkedList@ANONYMOUS l_s3_1 = null;
+  newList(l_s3_1);
+  assert ((l_s3_1.head.next) == (l_s3_1.head)); //Assert at ll_reve..err2.sk16:19 (-4570470617638410353)
+  assert ((l_s3_1.size) == 0); //Assert at ll_reve..err2.sk16:20 (5235139640191483769)
+  LinkedList@ANONYMOUS l_s5_2 = null;
+  newList(l_s5_2);
+  insertSort(l_s5_2, 22);
+  reverse(l_s5_2);
+  assert ((l_s5_2.head.next.element) == 22); //Assert at ll_reve..err2.sk16:26 (2654749109553857970)
+  assert ((l_s5_2.head.next.next) == (l_s5_2.head)); //Assert at ll_reve..err2.sk16:27 (7200935408148688346)
+  assert ((l_s5_2.size) == 1); //Assert at ll_reve..err2.sk16:28 (1836137438277417058)
+  LinkedList@ANONYMOUS l_s7_3 = null;
+  newList(l_s7_3);
+  insertSort(l_s7_3, 0);
+  insertSort(l_s7_3, -3);
+  reverse(l_s7_3);
+  assert ((l_s7_3.head.next.element) == 0); //Assert at ll_reve..err2.sk16:35 (-4677742487910814613)
+  assert ((l_s7_3.head.next.next.element) == -3); //Assert at ll_reve..err2.sk16:36 (435228659838147773)
+  assert ((l_s7_3.head.next.next.next) == (l_s7_3.head)); //Assert at ll_reve..err2.sk16:37 (4678240870423364372)
+  assert ((l_s7_3.size) == 2); //Assert at ll_reve..err2.sk16:38 (-7497811706864581096)
+}
+/*ll_reve..err2.sk16:42*/
+
+void insertHarness__Wrapper ()  implements insertHarness__WrapperNospec/*ll_reve..err2.sk16:42*/
+{
+  insertHarness();
+}
+/*ll_reve..err2.sk16:48*/
+
+void insertHarness__WrapperNospec ()/*ll_reve..err2.sk16:48*/
+{ }
+/*ll_reve..err2.sk16:53*/
+
+void insertSort (LinkedList l_5, int v_6)/*ll_reve..err2.sk16:53*/
+{
+  Entry@ANONYMOUS in_s9_8 = null;
+  newEntry(in_s9_8);
+  in_s9_8.element = v_6;
+  Entry@ANONYMOUS e_9 = l_5.head;
+  bit __sa0_a = (e_9.next) != (l_5.head);
+  while(__sa0_a)
+  {
+    if((e_9.next.element) < v_6)/*ll_reve..err2.sk16:70*/
+    {
+      e_9 = e_9.next;
+    }
+    else
+    {
+      in_s9_8.next = e_9.next;
+      e_9.next = in_s9_8;
+      l_5.size = (l_5.size) + 1;
+      return;
+    }
+    __sa0_a = (e_9.next) != (l_5.head);
+  }
+  in_s9_8.next = e_9.next;
+  e_9.next = in_s9_8;
+  l_5.size = (l_5.size) + 1;
+  return;
+}
+/*ll_reve..err2.sk16:96*/
+
+void newEntry (ref Entry _out_11)/*ll_reve..err2.sk16:96*/
+{
+  _out_11 = null;
+  _out_11 = new Entry();
+  _out_11.next = null;
+  return;
+}
+/*ll_reve..err2.sk16:105*/
+
+void newList (ref LinkedList _out_4)/*ll_reve..err2.sk16:105*/
+{
+  _out_4 = null;
+  _out_4 = new LinkedList();
+  _out_4.head = new Entry();
+  _out_4.head.next = _out_4.head;
+  _out_4.size = 0;
+  return;
+}
+/*ll_reve..err2.sk16:116*/
+
+void reverse (LinkedList l_b)/*ll_reve..err2.sk16:116*/
+{
+  if((l_b.head.next) == (l_b.head))/*ll_reve..err2.sk16:119*/
+  {
+    return;
+  }
+  Entry@ANONYMOUS ln1_c = l_b.head.next;
+  Entry@ANONYMOUS ln2_d = l_b.head.next.next;
+  Entry@ANONYMOUS ln3_e = l_b.head;
+  Entry@ANONYMOUS _tmprhs_s1 = ln3_e.next.next;
+  ln2_d.next.next = _tmprhs_s1;
+  bit __sa1_10 = ln2_d != (l_b.head);
+  Entry@ANONYMOUS ln4_f = null;
+  while(__sa1_10)
+  {
+    ln4_f = ln2_d.next;
+    ln1_c.next = ln3_e;
+    ln3_e = ln1_c;
+    ln1_c = ln2_d;
+    ln2_d = ln4_f;
+    __sa1_10 = ln4_f != (l_b.head);
+  }
+  ln1_c.next = ln3_e;
+}
+/* END PACKAGE ANONYMOUS*/

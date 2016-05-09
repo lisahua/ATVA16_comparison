@@ -1,0 +1,92 @@
+/* BEGIN PACKAGE ANONYMOUS*/
+struct Entry {
+    Entry next;
+    int element;
+}
+struct LinkedList {
+    Entry head;
+    int size;
+}
+/*ll_reverse.repair:12*/
+
+void insertHarness ()/*ll_reverse.repair:12*/
+{
+  LinkedList@ANONYMOUS l_s1_1 = null;
+  newList(l_s1_1);
+  assert ((l_s1_1.head) == (null)); //Assert at ll_reverse.repair:16 (-7876902551297375574)
+  assert ((l_s1_1.size) == 0); //Assert at ll_reverse.repair:17 (-968033661655467727)
+  LinkedList@ANONYMOUS l_s3_2 = null;
+  newList(l_s3_2);
+  Entry@ANONYMOUS n1_3 = new Entry();
+  n1_3.element = 22;
+  l_s3_2.head = n1_3;
+  l_s3_2.size = 1;
+  assert ((l_s3_2.head.element) == 22); //Assert at ll_reverse.repair:24 (-4150195862519367647)
+  assert ((l_s3_2.head.next) == (null)); //Assert at ll_reverse.repair:25 (-2366939487757024123)
+  assert ((l_s3_2.size) == 1); //Assert at ll_reverse.repair:26 (-2126702346992690756)
+  reverse(l_s3_2);
+  assert ((l_s3_2.head.element) == 22); //Assert at ll_reverse.repair:28 (3506227924998165821)
+  assert ((l_s3_2.head.next) == (null)); //Assert at ll_reverse.repair:29 (-988998202415015198)
+  assert ((l_s3_2.size) == 1); //Assert at ll_reverse.repair:30 (-2031866396603951329)
+  LinkedList@ANONYMOUS l_s5_4 = null;
+  newList(l_s5_4);
+  n1_3 = new Entry();
+  n1_3.element = -3;
+  l_s5_4.head = n1_3;
+  Entry@ANONYMOUS n2_5 = new Entry();
+  n2_5.element = 0;
+  n1_3.next = n2_5;
+  l_s5_4.size = 2;
+  assert ((l_s5_4.head.element) == -3); //Assert at ll_reverse.repair:40 (-1467830449027252351)
+  assert ((l_s5_4.head.next.element) == 0); //Assert at ll_reverse.repair:41 (26006269703099325)
+  assert ((l_s5_4.head.next.next) == (null)); //Assert at ll_reverse.repair:42 (-3225362371056241994)
+  assert ((l_s5_4.size) == 2); //Assert at ll_reverse.repair:43 (-2558143421533701823)
+  reverse(l_s5_4);
+  assert ((l_s5_4.head.element) == 0); //Assert at ll_reverse.repair:45 (7256085027806536)
+  assert ((l_s5_4.head.next.element) == -3); //Assert at ll_reverse.repair:46 (-5414753405091755770)
+  assert ((l_s5_4.head.next.next) == (null)); //Assert at ll_reverse.repair:47 (-1521846673591782481)
+  assert ((l_s5_4.size) == 2); //Assert at ll_reverse.repair:48 (9079223380032788719)
+}
+/*ll_reverse.repair:52*/
+
+void insertHarness__Wrapper ()  implements insertHarness__WrapperNospec/*ll_reverse.repair:52*/
+{
+  insertHarness();
+}
+/*ll_reverse.repair:58*/
+
+void insertHarness__WrapperNospec ()/*ll_reverse.repair:58*/
+{ }
+/*ll_reverse.repair:62*/
+
+void newList (ref LinkedList _out_6)/*ll_reverse.repair:62*/
+{
+  _out_6 = null;
+  _out_6 = new LinkedList();
+  _out_6.head = null;
+  _out_6.size = 0;
+  return;
+}
+/*ll_reverse.repair:72*/
+
+void reverse (LinkedList l_7)/*ll_reverse.repair:72*/
+{
+  if((l_7.head) == (null))/*ll_reverse.repair:74*/
+  {
+    return;
+  }
+  Entry@ANONYMOUS ln1_8 = l_7.head;
+  Entry@ANONYMOUS ln2_9 = l_7.head.next;
+  Entry@ANONYMOUS ln3_a = null;
+  Entry@ANONYMOUS ln4_b = null;
+  while(ln2_9 != (null))
+  {
+    ln4_b = ln2_9.next;
+    ln1_8.next = ln3_a;
+    ln3_a = ln1_8;
+    l_7.head = ln2_9;
+    l_7.head.next = ln1_8;
+    ln2_9 = ln4_b;
+  }
+}
+/* END PACKAGE ANONYMOUS*/
