@@ -1,0 +1,98 @@
+struct Entry {
+    Entry next;
+    int element;
+}
+
+struct LinkedList {
+    Entry head;
+    int size;
+}
+
+Entry newEntry() {
+    Entry n = new Entry();
+    n.next = null;
+    return n;
+}
+//sentinel head
+LinkedList newList() {
+    LinkedList l = new LinkedList();
+    l.head = new Entry();
+    l.head.next = l.head;
+    l.size =0;
+    return l;
+}
+
+bit hasLoop(LinkedList l) {
+    Entry ln1 = l.head;
+    Entry ln2 = l.head;
+    while (true) {
+     ln1 = ln1.next;
+    if (ln2.next == l.head || ln2.next.next ==l.head) 
+        return 1;
+   // ln2 = ln2.next.next;
+    //if (ln1 == ln2)
+    //    return 0; 
+    }
+    return 1;
+}
+
+harness void insertHarness() {
+    //Empty
+    LinkedList l = null;
+    l = newList();
+    assert hasLoop(l) == 1;
+    assert l.head.next == l.head;
+
+    //insert 22
+     l = newList();
+    Entry n1 = new Entry();
+    n1.element = 22;
+    n1.next = l.head;
+    l.head.next = n1;
+    assert hasLoop(l)==1;
+    assert l.head.next.element == 22;
+    assert l.head.next.next ==l.head;
+
+    //insert bug
+     n1.next = n1;
+    assert hasLoop(l)==0;
+    //insert 22,3
+    l = newList();
+    n1 = new Entry();
+    n1.element = 22;
+    Entry n2 = new Entry();
+    n2.element = 3;
+    
+    l.head.next = n2;
+    n2.next = n1;
+    n1.next = l.head;
+    
+    assert hasLoop(l)==1;
+    assert l.head.next == n2;
+    assert l.head.next.next ==n1;
+    assert l.head.next.next.next ==l.head;
+    
+    //insert bug
+    n1.next = n2;
+    assert hasLoop(l)==0;
+    
+    
+    l = newList();
+    n1 = new Entry();
+    n1.element = 22;
+    n2 = new Entry();
+    n2.element = 3;
+    Entry n3 = new Entry();
+    n3.element = 5;
+    
+    l.head.next = n3;
+    n3.next = n2;
+    n2.next = n1;
+    n1.next = l.head;
+    
+    assert hasLoop(l)==1;
+    
+    //insert bug
+    n1.next = n3;
+    assert hasLoop(l)==0;
+}

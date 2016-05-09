@@ -1,0 +1,101 @@
+/* BEGIN PACKAGE ANONYMOUS*/
+struct Entry {
+    int element;
+    Entry next;
+    Entry previous;
+}
+struct LinkedList {
+    Entry head;
+    int size;
+}
+/*dll_add.sk0:13*/
+
+void addFirst (LinkedList l_7, int v_8)/*dll_add.sk0:13*/
+{
+  Entry@ANONYMOUS e_s9_a = null;
+  newEntry(e_s9_a);
+  e_s9_a.element = v_8;
+  e_s9_a.next = l_7.head.next;
+  e_s9_a.previous = l_7.head;
+  e_s9_a.next.previous = e_s9_a;
+  l_7.size = (l_7.size) + 1;
+  l_7.head.next = e_s9_a;
+}
+/*dll_add.sk0:32*/
+
+void addFrontHarness ()/*dll_add.sk0:32*/
+{
+  LinkedList@ANONYMOUS l_s1_1 = null;
+  newList(l_s1_1);
+  assert ((l_s1_1.size) == 0); //Assert at dll_add.sk0:38 (-4692999475892737245)
+  assert ((l_s1_1.head.next) == (l_s1_1.head)); //Assert at dll_add.sk0:39 (-3656796899668198168)
+  assert ((l_s1_1.head.previous) == (l_s1_1.head)); //Assert at dll_add.sk0:40 (-8149458941326385573)
+  LinkedList@ANONYMOUS l_s3_2 = null;
+  newList(l_s3_2);
+  addFirst(l_s3_2, 8);
+  assert ((l_s3_2.head.next.element) == 8); //Assert at dll_add.sk0:45 (-9145289507919300919)
+  assert ((l_s3_2.head.next.previous) == (l_s3_2.head)); //Assert at dll_add.sk0:46 (-2075331222991384250)
+  assert ((l_s3_2.head.next.next) == (l_s3_2.head)); //Assert at dll_add.sk0:47 (4179328997454156734)
+  assert ((l_s3_2.size) == 1); //Assert at dll_add.sk0:48 (6562277755658836113)
+  LinkedList@ANONYMOUS l_s5_3 = null;
+  newList(l_s5_3);
+  addFirst(l_s5_3, 8);
+  addFirst(l_s5_3, 5);
+  assert ((l_s5_3.head.next.element) == 5); //Assert at dll_add.sk0:54 (1863342227644544748)
+  assert ((l_s5_3.head.next.previous) == (l_s5_3.head)); //Assert at dll_add.sk0:55 (-7189851373249890691)
+  assert ((l_s5_3.head.next.next.element) == 8); //Assert at dll_add.sk0:56 (2565468646220018147)
+  assert ((l_s5_3.head.next.next.element) == 8); //Assert at dll_add.sk0:57 (8511124509908097817)
+  assert ((l_s5_3.head.next.next.previous.element) == 5); //Assert at dll_add.sk0:58 (-9003361131071055827)
+  assert ((l_s5_3.head.next.next.next) == (l_s5_3.head)); //Assert at dll_add.sk0:59 (-2821851471397587069)
+  assert ((l_s5_3.size) == 2); //Assert at dll_add.sk0:60 (-9102363492005380917)
+  LinkedList@ANONYMOUS l_s7_4 = null;
+  newList(l_s7_4);
+  addFirst(l_s7_4, 8);
+  addFirst(l_s7_4, 5);
+  addFirst(l_s7_4, 13);
+  assert ((l_s7_4.head.next.element) == 13); //Assert at dll_add.sk0:67 (1540826335306248268)
+  assert ((l_s7_4.head.next.previous) == (l_s7_4.head)); //Assert at dll_add.sk0:68 (-4684756252875768523)
+  assert ((l_s7_4.head.next.next.element) == 5); //Assert at dll_add.sk0:69 (-2026463977196262501)
+  assert ((l_s7_4.head.next.next.element) == 5); //Assert at dll_add.sk0:70 (-1927127988266984815)
+  assert ((l_s7_4.head.next.next.previous.element) == 13); //Assert at dll_add.sk0:71 (1619343164595454337)
+  assert ((l_s7_4.head.next.next.next.element) == 8); //Assert at dll_add.sk0:72 (9098860330262352364)
+  assert ((l_s7_4.head.next.next.next.element) == 8); //Assert at dll_add.sk0:73 (1855599074783896855)
+  assert ((l_s7_4.head.next.next.next.previous.element) == 5); //Assert at dll_add.sk0:74 (5734570178645346127)
+  assert ((l_s7_4.head.next.next.next.next) == (l_s7_4.head)); //Assert at dll_add.sk0:75 (2245160897079196354)
+  assert ((l_s7_4.size) == 3); //Assert at dll_add.sk0:76 (4835934819562682785)
+}
+/*dll_add.sk0:80*/
+
+void addFrontHarness__Wrapper ()  implements addFrontHarness__WrapperNospec/*dll_add.sk0:80*/
+{
+  addFrontHarness();
+}
+/*dll_add.sk0:86*/
+
+void addFrontHarness__WrapperNospec ()/*dll_add.sk0:86*/
+{ }
+/*dll_add.sk0:91*/
+
+void newEntry (ref Entry _out_b)/*dll_add.sk0:91*/
+{
+  _out_b = null;
+  _out_b = new Entry();
+  _out_b.previous = null;
+  _out_b.next = null;
+  return;
+}
+/*dll_add.sk0:101*/
+
+void newList (ref LinkedList _out_5)/*dll_add.sk0:101*/
+{
+  _out_5 = null;
+  _out_5 = new LinkedList();
+  Entry@ANONYMOUS _out_s11_6 = null;
+  newEntry(_out_s11_6);
+  _out_5.head = _out_s11_6;
+  _out_5.head.next = _out_5.head;
+  _out_5.head.previous = _out_5.head;
+  _out_5.size = 0;
+  return;
+}
+/* END PACKAGE ANONYMOUS*/

@@ -1,0 +1,111 @@
+/* BEGIN PACKAGE ANONYMOUS*/
+struct Node {
+    int key;
+    Node left;
+    Node right;
+    Node p;
+}
+struct BST {
+    Node root;
+    int size;
+}
+/*bst_insert.sk17:14*/
+
+void insertHarness ()/*bst_insert.sk17:14*/
+{
+  BST@ANONYMOUS bst_s1_1 = null;
+  newBST(bst_s1_1);
+  bit _out_s3_2 = 0;
+  insert_bst(bst_s1_1, 5, _out_s3_2);
+  assert ((bst_s1_1.root.key) == 5); //Assert at bst_insert.sk17:23 (1046395720042195557)
+  assert ((bst_s1_1.root.left) == (null)); //Assert at bst_insert.sk17:24 (882678424829500145)
+  assert ((bst_s1_1.root.right) == (null)); //Assert at bst_insert.sk17:25 (3625403709968122764)
+  assert ((bst_s1_1.size) == 1); //Assert at bst_insert.sk17:26 (7049788331272187422)
+  bit _out_s5_3 = 0;
+  insert_bst(bst_s1_1, 1, _out_s5_3);
+  assert ((bst_s1_1.root.key) == 5); //Assert at bst_insert.sk17:30 (2707278268826288100)
+  assert ((bst_s1_1.root.left.key) == 1); //Assert at bst_insert.sk17:31 (6202975598178058996)
+  assert ((bst_s1_1.size) == 2); //Assert at bst_insert.sk17:32 (5366454797418032956)
+  bit _out_s7_4 = 0;
+  insert_bst(bst_s1_1, 7, _out_s7_4);
+  assert ((bst_s1_1.root.key) == 5); //Assert at bst_insert.sk17:36 (5757213474581966127)
+  assert ((bst_s1_1.root.right.key) == 7); //Assert at bst_insert.sk17:37 (-1859804522566918327)
+  assert ((bst_s1_1.size) == 3); //Assert at bst_insert.sk17:38 (6625151709660977559)
+}
+/*bst_insert.sk17:42*/
+
+void insertHarness__Wrapper ()  implements insertHarness__WrapperNospec/*bst_insert.sk17:42*/
+{
+  insertHarness();
+}
+/*bst_insert.sk17:48*/
+
+void insertHarness__WrapperNospec ()/*bst_insert.sk17:48*/
+{ }
+/*bst_insert.sk17:53*/
+
+void insert_bst (BST T_6, int k_7, ref bit _out_8)/*bst_insert.sk17:53*/
+{
+  _out_8 = 0;
+  Node@ANONYMOUS x_9 = T_6.root;
+  while(x_9 != (null))
+  {
+    if((x_9.key) == k_7)/*bst_insert.sk17:65*/
+    {
+      _out_8 = 1;
+      return;
+    }
+    if(k_7 < (x_9.key))/*bst_insert.sk17:72*/
+    {
+      x_9 = x_9.left;
+    }
+    else
+    {
+      x_9 = x_9.right;
+    }
+  }
+  Node@ANONYMOUS x_s9_b = null;
+  newNode(k_7, x_s9_b);
+  Node@ANONYMOUS _tmprhs_s1 = T_6.root;
+  if(_tmprhs_s1 == (null))/*bst_insert.sk17:89*/
+  {
+    T_6.root = x_s9_b;
+  }
+  else
+  {
+    if((x_s9_b.key) < (_tmprhs_s1.key))/*bst_insert.sk17:98*/
+    {
+      _tmprhs_s1.left = x_s9_b;
+    }
+    if((x_s9_b.key) >= (_tmprhs_s1.key))/*bst_insert.sk17:102*/
+    {
+      _tmprhs_s1.right = x_s9_b;
+    }
+  }
+  T_6.size = (T_6.size) + 1;
+  _out_8 = 0;
+  return;
+}
+/*bst_insert.sk17:117*/
+
+void newBST (ref BST _out_5)/*bst_insert.sk17:117*/
+{
+  _out_5 = null;
+  _out_5 = new BST();
+  _out_5.root = null;
+  _out_5.size = 0;
+  return;
+}
+/*bst_insert.sk17:127*/
+
+void newNode (int val_c, ref Node _out_d)/*bst_insert.sk17:127*/
+{
+  _out_d = null;
+  _out_d = new Node();
+  _out_d.key = val_c;
+  _out_d.left = null;
+  _out_d.right = null;
+  _out_d.p = null;
+  return;
+}
+/* END PACKAGE ANONYMOUS*/
