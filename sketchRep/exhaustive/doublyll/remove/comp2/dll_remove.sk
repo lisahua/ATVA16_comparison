@@ -54,8 +54,8 @@ int remove(LinkedList l, int v) {
             e = e.next;
          else {
            // e.previous.next = e.next;
-            e.next.previous = e.previous;
-            //l.size = l.size -1;
+          //  e.next.previous = e.previous;
+            l.size = l.size -1;
             return 0;
         }
     }
