@@ -31,7 +31,7 @@ bit insert_bst (BST T, int k) {
     Node y = null;
     
     while (x != null) {
-        y = x;
+       // y = x;
         if (x.key==k)
             return 1;
         if (k < x.key)
@@ -50,7 +50,7 @@ bit insert_bst (BST T, int k) {
         if (x.key >= y.key) 
             y.right =x;
     }
-    //x.p = y;
+    x.p = y;
     T.size = T.size +1;
     return 0;
 }

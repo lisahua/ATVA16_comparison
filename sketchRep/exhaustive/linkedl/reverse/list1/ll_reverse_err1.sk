@@ -96,17 +96,16 @@ harness void insertHarness() {
     assert l.head.next.next.next == l.head;
     assert l.size ==2;
 
-    //insert 4,3,1,6;
+    //insert 4,3,1;
      l = newList();
     insertSort(l,4);
     insertSort(l,3);
     insertSort(l,1);
-    insertSort(l,6);
+    //insertSort(l,6);
     reverse(l);
-    assert l.head.next.element == 6;
-    assert l.head.next.next.element == 4;
-    assert l.head.next.next.next.element == 3;
-    assert l.head.next.next.next.next.element == 1;
-    assert l.head.next.next.next.next.next == l.head;
-    assert l.size ==4;
+    assert l.head.next.element == 4;
+    assert l.head.next.next.element == 3;
+    assert l.head.next.next.next.element == 1;
+    assert l.head.next.next.next.next== l.head;
+    assert l.size ==3;
 }

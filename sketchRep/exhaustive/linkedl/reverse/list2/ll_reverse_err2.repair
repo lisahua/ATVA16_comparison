@@ -13,24 +13,24 @@ void insertHarness ()/*ll_reve..err2.sk16:12*/
 {
   LinkedList@ANONYMOUS l_s3_1 = null;
   newList(l_s3_1);
-  assert ((l_s3_1.head.next) == (l_s3_1.head)); //Assert at ll_reve..err2.sk16:19 (-4570470617638410353)
-  assert ((l_s3_1.size) == 0); //Assert at ll_reve..err2.sk16:20 (5235139640191483769)
+  assert ((l_s3_1.head.next) == (l_s3_1.head)); //Assert at ll_reve..err2.sk16:19 (-4269647513687360139)
+  assert ((l_s3_1.size) == 0); //Assert at ll_reve..err2.sk16:20 (6923120972048054231)
   LinkedList@ANONYMOUS l_s5_2 = null;
   newList(l_s5_2);
   insertSort(l_s5_2, 22);
   reverse(l_s5_2);
-  assert ((l_s5_2.head.next.element) == 22); //Assert at ll_reve..err2.sk16:26 (2654749109553857970)
-  assert ((l_s5_2.head.next.next) == (l_s5_2.head)); //Assert at ll_reve..err2.sk16:27 (7200935408148688346)
-  assert ((l_s5_2.size) == 1); //Assert at ll_reve..err2.sk16:28 (1836137438277417058)
+  assert ((l_s5_2.head.next.element) == 22); //Assert at ll_reve..err2.sk16:26 (5713197695875499861)
+  assert ((l_s5_2.head.next.next) == (l_s5_2.head)); //Assert at ll_reve..err2.sk16:27 (2254871507732384423)
+  assert ((l_s5_2.size) == 1); //Assert at ll_reve..err2.sk16:28 (7939575963694593453)
   LinkedList@ANONYMOUS l_s7_3 = null;
   newList(l_s7_3);
   insertSort(l_s7_3, 0);
   insertSort(l_s7_3, -3);
   reverse(l_s7_3);
-  assert ((l_s7_3.head.next.element) == 0); //Assert at ll_reve..err2.sk16:35 (-4677742487910814613)
-  assert ((l_s7_3.head.next.next.element) == -3); //Assert at ll_reve..err2.sk16:36 (435228659838147773)
-  assert ((l_s7_3.head.next.next.next) == (l_s7_3.head)); //Assert at ll_reve..err2.sk16:37 (4678240870423364372)
-  assert ((l_s7_3.size) == 2); //Assert at ll_reve..err2.sk16:38 (-7497811706864581096)
+  assert ((l_s7_3.head.next.element) == 0); //Assert at ll_reve..err2.sk16:35 (1921700198444737654)
+  assert ((l_s7_3.head.next.next.element) == -3); //Assert at ll_reve..err2.sk16:36 (8754974784297574071)
+  assert ((l_s7_3.head.next.next.next) == (l_s7_3.head)); //Assert at ll_reve..err2.sk16:37 (-335659587382135669)
+  assert ((l_s7_3.size) == 2); //Assert at ll_reve..err2.sk16:38 (2845616887847429132)
 }
 /*ll_reve..err2.sk16:42*/
 

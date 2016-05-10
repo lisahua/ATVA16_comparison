@@ -57,5 +57,16 @@ harness void insertHarness() {
     assert l.head.next.next.element == 3;
     assert l.head.next.next.next == l.head;
     assert l.size ==2;
+    
+       //insert 2,3,5;
+     l = newList();
+    insertSort(l,3);
+    insertSort(l,2);
+    insertSort(l,5);
+    assert l.head.next.element == 2;
+    assert l.head.next.next.element == 3;
+    assert l.head.next.next.next.element ==5;
+    assert l.head.next.next.next.next == l.head;
+    assert l.size ==3;
 
 }

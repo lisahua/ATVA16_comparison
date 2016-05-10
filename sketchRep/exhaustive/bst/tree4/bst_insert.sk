@@ -32,11 +32,10 @@ bit insert_bst (BST T, int k) {
     
     while (x != null) {
         y = x;
-       // if (x.key==k)
-       //     return 0;
+
         if (k < x.key)
             x = x.left;
-        if (k > x.key)
+        if (k >= x.key)
             x = x.right;
     }
 

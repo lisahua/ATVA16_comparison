@@ -32,7 +32,7 @@ void addFirst(LinkedList l, int v) {
     e.element = v;
   e.next = l.head.next;
   e.previous = l.head;
-  e.previous.next = e;
+ // e.previous.next = e;
   e.next.previous = e;
     l.size = l.size+1;
 }
@@ -41,7 +41,7 @@ void addLast(LinkedList l, int v) {
     Entry e = newEntry();
     e.element = v;
     e.next = l.head;
-    //e.previous = l.head.previous;
+    e.previous = l.head.previous;
     e.previous.next = e;
     e.next.previous = e;
     l.size = l.size+1;
