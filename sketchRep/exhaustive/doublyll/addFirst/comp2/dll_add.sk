@@ -32,8 +32,8 @@ void addFirst(LinkedList l, int v) {
     e.element = v;
   e.next = l.head.next;
   e.previous = l.head;
-  e.previous.next = e;
- // e.next.previous = e;
+ // e.previous.next = e;
+  e.next.previous = e;
  //   l.size = l.size+1;
 }
 
@@ -54,14 +54,16 @@ harness void addFrontHarness() {
      assert l.size ==0;
      assert l.head.next == l.head;
      assert l.head.previous == l.head;
+     assert l.head.element ==0;
      
      //insert 1
      l = newList();
      addFirst(l,8);
-     assert l.head.next.element ==8;
      assert l.head.next.previous == l.head;
      assert l.head.next.next == l.head;
      assert l.size ==1;
+     assert l.head.element ==0;
+     assert l.head.next.element ==8;
      
      //insert 2
      l = newList();
@@ -75,6 +77,7 @@ harness void addFrontHarness() {
      assert l.head.next.next.previous.element == 5;
      assert l.head.next.next.next == l.head;     
      assert l.size ==2;
+     assert l.head.element ==0;
      
       //insert 3
      l = newList();
@@ -93,5 +96,6 @@ harness void addFrontHarness() {
      assert l.head.next.next.next.previous.element == 5;
      assert l.head.next.next.next.next == l.head; 
      assert l.size ==3;
+     assert l.head.element ==0;
 }
 
