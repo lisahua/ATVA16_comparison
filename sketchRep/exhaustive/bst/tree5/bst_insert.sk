@@ -56,24 +56,46 @@ bit insert_bst (BST T, int k) {
 }
 
 harness void insertHarness() {
-        BST bst = newBST();
+    BST bst = newBST();
     //insert 5
-    insert_bst (bst, 5);
+    bit _res = insert_bst (bst, 5);
+    assert _res == 1;
     assert bst.root.key == 5;
+    assert bst.root.p == null; 
     assert bst.root.left == null;
     assert bst.root.right ==null;
     assert  bst.size ==1;
     
-    //insert 1
-    insert_bst (bst, 1);
-    assert bst.root.key == 5;
-    assert bst.root.left.key == 1;
-      assert  bst.size ==2;
+    //insert 3,1,2,2
+    bst = newBST();
+    _res = insert_bst (bst, 3);
+    assert _res == 1;
+    assert bst.root.key == 3;
+    assert bst.root.p == null;    
+    assert bst.root.left == null;
+    assert bst.root.right == null;
+    assert  bst.size ==1;
       
-        //insert 7
-    insert_bst (bst, 7);
-    assert bst.root.key == 5;
-    assert bst.root.right.key == 7;
-     assert  bst.size ==3;
+    _res = insert_bst (bst, 1);
+    assert _res == 1;
+    assert bst.root.key == 3;
+    assert bst.root.left.key == 1;
+    assert bst.root.left.p.key == 3; 
+    assert bst.root.right == null;
+    assert  bst.size ==2;
+
+    _res = insert_bst (bst, 2);
+    assert _res == 1;
+    assert bst.root.key == 3;
+    assert bst.root.left.key == 1;
+    assert bst.root.left.p.key == 3; 
+    assert bst.root.right == null;
+    assert bst.root.left.right.key == 2;
+    assert bst.root.left.right.p.key == 1;
+    assert bst.size ==3;
+   
+    _res = insert_bst (bst, 2);
+    assert _res == 0;
+    assert bst.size ==3;
 }
 
