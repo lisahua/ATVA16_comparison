@@ -10,13 +10,19 @@ Because this paper is under submission, we only provide evaluation dataset in th
 
 SketchRep folder contains the results from executing SketchRep on 35 faults benchmark.
 
+*.sk represents faulty Sketch program, *.repair represents repair Sketch Program.
+
 ### GenProg
 
 GenProg folder contains the results from executing GenProg on 35 faults benchmark using GenProg v3.0.
 
+prog.c represents faulty C program, repair.c represents repair C program transformed from the same subject
+
 ### SPR
 
 SketchRep folder contains the results from executing SPR on 35 faults benchmark. We use the virtual image provided by SPR authors.
+
+prog.c represents faulty C program, __fixed_prog.c represents repair C program transformed from the same subject
 
 ### Exhaustive Test Suite
 
