@@ -1,6 +1,6 @@
 ## Korat log
 
-### SortedLinkedList 
+### SortedLinkedList, reuse similar test cases for DoublyLinkedList
 
 $ korat --class  korat.examples.singlylinkedlist.SinglyLinkedList --args 0,3,4,4 --print
 
@@ -20,3 +20,30 @@ New found:9
 
 End of Korat Execution
 Overall time: 0.135 s.
+
+### BinarySearchTree
+
+$ korat --class  korat.examples.searchtree.SearchTree --args 3,0,3,1,3 --print
+
+Start of Korat Execution for korat.examples.searchtree.SearchTree (repOK, [3, 0, 3, 1, 3])
+
+{}
+{ {1} }
+{ {2} }
+{ {3} }
+{ {1 {2} } }
+{ {1 {3} } }
+{ {2 {3} } }
+{ {1 {2 {3} } } }
+{ {1 { {2} 3} } }
+{ { {1} 2} }
+{ { {1} 3} }
+{ { {2} 3} }
+{ { {1 {2} } 3} }
+{ { { {1} 2} 3} }
+{ { {1} 2 {3} } }
+Total explored:178
+New found:15
+
+End of Korat Execution
+Overall time: 0.141 s.
