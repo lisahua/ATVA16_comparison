@@ -17,3 +17,7 @@ GenProg folder contains the results from executing GenProg on 35 faults benchmar
 ### SPR
 
 SketchRep folder contains the results from executing SPR on 35 faults benchmark. We use the virtual image provided by SPR authors.
+
+### Exhaustive Test Suite
+
+Please see [Exhaustive.md](https://github.com/lisahua/ATVA16_comparison/blob/master/ExhaustiveTuite.md)
