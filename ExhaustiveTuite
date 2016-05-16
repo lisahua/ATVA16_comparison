@@ -1,0 +1,106 @@
+## Exhaustive Test cases
+
+### BinarySearchTree.insert(): cat tests/*.in
+
+" "           Empty Tree, insert null  
+
+" 5 "         Empty Tree, insert 5    
+
+" 5 1 "       Empty Tree, insert 5, insert 1     
+
+" 5 7 "       Empty Tree, insert 5, insert 7  
+
+" 2 1 3 "     Empty Tree, insert 2, insert 1, insert 3    
+
+" 1 2 3 "     Empty Tree, insert 1, insert 2, insert 3
+
+" 3 2 1 "     Empty Tree, insert 3, insert 2, insert 1
+
+" 3 1 2 "     Empty Tree, insert 3, insert 1, insert 2
+
+" 1 3 2 "     Empty Tree, insert 1, insert 3, insert 2 
+
+" 3 1 2 2 "   Empty Tree, insert 3, insert 1, insert 2, insert 2
+
+" 1 3 2 3 "   Empty Tree, insert 1, insert 3, insert 2, insert 3  (only for SPR and GenProg)
+
+### DoublyLinkedList.addFirst() and addLast(): cat tests/*.in
+
+" "             Empty List, insert null
+
+" N1 "          Empty List, insert N1   
+
+" N1 N1 "       Empty List, insert N1, insert N1
+
+" N1 N1 N1 "    Empty List, insert N1, insert N1, insert N1   
+
+" N1 N1 N2 "    Empty List, insert N1, insert N1, insert N2
+
+" N1 N2 N1 "    Empty List, insert N1, insert N2, insert N1
+
+" N1 N2 N2 "    Empty List, insert N1, insert N2, insert N2
+
+" N1 N2 N3 "    Empty List, insert N1, insert N2, insert N3
+
+" N1 N2 "       Empty List, insert N1, insert N2
+
+" N1 N2 N3 N4 " Empty List, insert N1, insert N2, insert N3, insert N4   (only for SPR and GenProg)
+
+### DoublyLinkedList.remove():  cat tests/*.in
+
+" "                Empty List, remove null
+
+" N1 "             Empty List, remove N1
+
+" N1 N1 "          List with 1 node N1, remove N1
+
+" N1 N1 N2 "       List with 2 nodes N1, followed by N2, remove N1 
+
+" N1 N1 N2 N3 "    List with 3 nodes N1, N2, N3, remove N1
+
+" N1 N2 N1 "       List with 2 nodes N2, N1, remove N1
+
+" N1 N2 "          List with 1 node N2, remove N1
+
+" N1 N2 N3 "       List with 2 nodes N2, N3, remove N1
+
+" N1 N2 N3 N1 "    List with 3 nodes N2, N3, N1, remove N1
+
+" N1 N2 N1 N3 "    List with 3 nodes N2, N1,N3, remove N1
+
+
+linkedList/hasLoop: cat tests/*.in
+" "          
+" N1 H "
+" N1 N1 "
+" N1 N2 N1 "
+" N1 N2 N3 N1 "
+" N1 N2 N2 "
+" N1 N2 N3 H "
+" N1 N2 N3 N3 "
+" N1 N2 N3 N2 "
+
+linkedList/insert: cat tests/*.in
+" 0 1 1 "
+" 3 3 "
+" 22 "
+" 0 -3 "
+" 0 0 0 "
+" 4 3 1 6 "
+" "
+" 4 0 5 3 1 8 9 -10 "
+" 0 0 -1 "
+" 0 1 0 "
+
+
+linkedList/reverse:$ cat tests/*.in
+" 0 1 1 "
+" 3 3 "
+" 22 "
+" 0 -3 "
+" 0 0 0 "
+" 4 3 1 6 "
+" "
+" 4 0 5 3 1 8 9 -10 "
+" 0 0 -1 "
+" 0 1 0 "
