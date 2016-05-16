@@ -24,4 +24,4 @@ Please see [Exhaustive.md](https://github.com/lisahua/ATVA16_comparison/blob/mas
 
 ### Random Selected Three Test Suite
 
-Please see [Three-Test-Cases.md](https://github.com/lisahua/ATVA16_comparison/blob/master/ExhaustiveTuite.md)
+Please see [Three-Test-Cases.md](https://github.com/lisahua/ATVA16_comparison/blob/master/Three-Test-Cases.md)
