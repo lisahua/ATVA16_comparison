@@ -4,17 +4,16 @@ SketchRep is a program repair tool  that translates a faulty program to a partia
 
 Because this paper is under submission, we only provide evaluation dataset in this reporsitory. The source code of SketchRep will be published afterward. 
 
-## SketchRep
+## Tools
+
+### SketchRep
 
 SketchRep folder contains the results from executing SketchRep on 35 faults benchmark.
 
-
-## GenProg
+### GenProg
 
 GenProg folder contains the results from executing GenProg on 35 faults benchmark using GenProg v3.0.
 
-
-
-## SPR
+### SPR
 
 SketchRep folder contains the results from executing SPR on 35 faults benchmark. We use the virtual image provided by SPR authors.
