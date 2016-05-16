@@ -7,14 +7,14 @@ $ korat --class  korat.examples.singlylinkedlist.SinglyLinkedList --args 0,3,4,4
 Start of Korat Execution for korat.examples.singlylinkedlist.SinglyLinkedList (repOK, [0, 3, 4, 4])
 
 ()
-([\#0])
-([\#0][\#0])
-([\#0][\#0][\#0])
-([\#0][\#0][\#1])
-([\#0][\#1])
-([\#0][\#1][\#0])
-([\#0][\#1][\#1])
-([\#0][\#1][\#2])
+([#0])
+([#0][#0])
+([#0][#0][#0])
+([#0][#0][#1])
+([#0][#1])
+([#0][#1][#0])
+([#0][#1][#1])
+([#0][#1][#2])
 Total explored:71
 New found:9
 
