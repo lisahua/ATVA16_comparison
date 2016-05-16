@@ -73,7 +73,7 @@ Notes: sorted, but can have duplicated elements
 " 0 1 0 "          Empty List, insert 0, insert 1, insert 0
 
 
-linkedList/reverse:$ cat tests/*.in
+### LinkedList/reverse:$ cat tests/*.in
 " 0 1 1 "          List 0,1,1;   after reversion should be 1,1,0
 " 3 3 "            List 3,3;     after reversion should be 3,3
 " 22 "             List 22;      after reversion should be 22
