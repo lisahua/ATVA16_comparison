@@ -21,3 +21,7 @@ SketchRep folder contains the results from executing SPR on 35 faults benchmark.
 ### Exhaustive Test Suite
 
 Please see [Exhaustive.md](https://github.com/lisahua/ATVA16_comparison/blob/master/ExhaustiveTuite.md)
+
+### Random Selected Three Test Suite
+
+Please see [Three-Test-Cases.md](https://github.com/lisahua/ATVA16_comparison/blob/master/ExhaustiveTuite.md)
