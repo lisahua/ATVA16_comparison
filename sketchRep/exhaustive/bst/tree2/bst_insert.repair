@@ -9,109 +9,130 @@ struct BST {
     Node root;
     int size;
 }
-/*bst_insert.sk13:14*/
+/*bst_insert.sk21:14*/
 
-void insertHarness ()/*bst_insert.sk13:14*/
+void insertHarness ()/*bst_insert.sk21:14*/
 {
   BST@ANONYMOUS bst_s1_1 = null;
   newBST(bst_s1_1);
   bit _out_s3_2 = 0;
   insert_bst(bst_s1_1, 5, _out_s3_2);
-  assert ((bst_s1_1.root.key) == 5); //Assert at bst_insert.sk13:23 (-527861849842295059)
-  assert ((bst_s1_1.root.left) == (null)); //Assert at bst_insert.sk13:24 (5747484204133806627)
-  assert ((bst_s1_1.root.right) == (null)); //Assert at bst_insert.sk13:25 (-2795311527158953357)
-  assert ((bst_s1_1.size) == 1); //Assert at bst_insert.sk13:26 (-8847455923081167847)
+  assert ((bst_s1_1.root.key) == 5); //Assert at bst_insert.sk21:23 (4564880388166213036)
+  assert ((bst_s1_1.root.left) == (null)); //Assert at bst_insert.sk21:24 (-2937708341909187701)
+  assert ((bst_s1_1.root.right) == (null)); //Assert at bst_insert.sk21:25 (4552931210752072773)
+  assert ((bst_s1_1.size) == 1); //Assert at bst_insert.sk21:26 (-1697902557461114651)
+  assert ((bst_s1_1.root.p) == (null)); //Assert at bst_insert.sk21:27 (-5810378160992657239)
   bit _out_s5_3 = 0;
   insert_bst(bst_s1_1, 1, _out_s5_3);
-  assert ((bst_s1_1.root.key) == 5); //Assert at bst_insert.sk13:30 (-3002686165364219746)
-  assert ((bst_s1_1.root.left.key) == 1); //Assert at bst_insert.sk13:31 (4736033716319361514)
-  assert ((bst_s1_1.size) == 2); //Assert at bst_insert.sk13:32 (953708552285304492)
+  assert ((bst_s1_1.root.key) == 5); //Assert at bst_insert.sk21:31 (5803168612880106384)
+  assert ((bst_s1_1.root.left.key) == 1); //Assert at bst_insert.sk21:32 (9148846379465916014)
+  assert ((bst_s1_1.size) == 2); //Assert at bst_insert.sk21:33 (1887798284618393382)
+  assert ((bst_s1_1.root.left.p.key) == 5); //Assert at bst_insert.sk21:34 (-2422327328869090658)
   bit _out_s7_4 = 0;
   insert_bst(bst_s1_1, 7, _out_s7_4);
-  assert ((bst_s1_1.root.key) == 5); //Assert at bst_insert.sk13:36 (1253145205443042531)
-  assert ((bst_s1_1.root.right.key) == 7); //Assert at bst_insert.sk13:37 (-7211704034848182104)
-  assert ((bst_s1_1.size) == 3); //Assert at bst_insert.sk13:38 (2065142283875787649)
+  assert ((bst_s1_1.root.key) == 5); //Assert at bst_insert.sk21:38 (-8370961027324425008)
+  assert ((bst_s1_1.root.right.key) == 7); //Assert at bst_insert.sk21:39 (5607621705482824226)
+  assert ((bst_s1_1.size) == 3); //Assert at bst_insert.sk21:40 (-8866071127068146672)
+  assert ((bst_s1_1.root.right.p.key) == 5); //Assert at bst_insert.sk21:41 (-1814304673233891755)
+  BST@ANONYMOUS bst_s9_5 = null;
+  newBST(bst_s9_5);
+  bit _out_s11_6 = 0;
+  insert_bst(bst_s9_5, 5, _out_s11_6);
+  assert ((bst_s9_5.root.key) == 5); //Assert at bst_insert.sk21:48 (6397044549936874189)
+  assert ((bst_s9_5.root.left) == (null)); //Assert at bst_insert.sk21:49 (-4396300980014085144)
+  assert ((bst_s9_5.root.right) == (null)); //Assert at bst_insert.sk21:50 (4181581162033342858)
+  assert ((bst_s9_5.size) == 1); //Assert at bst_insert.sk21:51 (8318255366687641924)
+  assert ((bst_s9_5.root.p) == (null)); //Assert at bst_insert.sk21:52 (-2913075344095354250)
+  bit _out_s13_7 = 0;
+  insert_bst(bst_s9_5, 3, _out_s13_7);
+  assert ((bst_s9_5.root.key) == 5); //Assert at bst_insert.sk21:56 (3692692898143345519)
+  assert ((bst_s9_5.root.left.key) == 3); //Assert at bst_insert.sk21:57 (4745954682413430769)
+  assert ((bst_s9_5.size) == 2); //Assert at bst_insert.sk21:58 (2157158539396464360)
+  assert ((bst_s9_5.root.left.p.key) == 5); //Assert at bst_insert.sk21:59 (6214397579032579640)
+  bit _out_s15_8 = 0;
+  insert_bst(bst_s9_5, 1, _out_s15_8);
+  assert ((bst_s9_5.root.key) == 5); //Assert at bst_insert.sk21:63 (8088294725492076805)
+  assert ((bst_s9_5.root.left.key) == 3); //Assert at bst_insert.sk21:64 (492238686737938916)
+  assert ((bst_s9_5.root.left.left.key) == 1); //Assert at bst_insert.sk21:65 (-180359166059572462)
+  assert ((bst_s9_5.root.left.left.p.key) == 3); //Assert at bst_insert.sk21:66 (357000456378203977)
+  assert ((bst_s9_5.size) == 3); //Assert at bst_insert.sk21:67 (-1760864558596490057)
 }
-/*bst_insert.sk13:42*/
+/*bst_insert.sk21:71*/
 
-void insertHarness__Wrapper ()  implements insertHarness__WrapperNospec/*bst_insert.sk13:42*/
+void insertHarness__Wrapper ()  implements insertHarness__WrapperNospec/*bst_insert.sk21:71*/
 {
   insertHarness();
 }
-/*bst_insert.sk13:48*/
+/*bst_insert.sk21:77*/
 
-void insertHarness__WrapperNospec ()/*bst_insert.sk13:48*/
+void insertHarness__WrapperNospec ()/*bst_insert.sk21:77*/
 { }
-/*bst_insert.sk13:53*/
+/*bst_insert.sk21:82*/
 
-void insert_bst (BST T_6, int k_7_0, ref bit _out_8)/*bst_insert.sk13:53*/
+void insert_bst (BST T_a, int k_b, ref bit _out_c)/*bst_insert.sk21:82*/
 {
-  _out_8 = 0;
-  Node@ANONYMOUS x_9 = T_6.root;
-  Node@ANONYMOUS y_a = null;
-  while(x_9 != (null))
+  _out_c = 0;
+  Node@ANONYMOUS x_d = T_a.root;
+  Node@ANONYMOUS y_e = null;
+  while(x_d != (null))
   {
-    y_a = x_9;
-    if((x_9.key) == k_7_0)/*bst_insert.sk13:66*/
+    y_e = x_d;
+    if((x_d.key) == k_b)/*bst_insert.sk21:95*/
     {
-      _out_8 = 1;
+      _out_c = 1;
       return;
     }
-    if(k_7_0 < (x_9.key))/*bst_insert.sk13:73*/
+    if(k_b < (x_d.key))/*bst_insert.sk21:102*/
     {
-      x_9 = x_9.left;
+      x_d = x_d.left;
     }
     else
     {
-      x_9 = x_9.right;
+      x_d = x_d.right;
     }
   }
-  Node@ANONYMOUS x_s9_b = null;
-  newNode(k_7_0, x_s9_b);
-  if(y_a == (null))/*bst_insert.sk13:87*/
+  Node@ANONYMOUS x_s17_f = null;
+  newNode(k_b, x_s17_f);
+  x_s17_f.p = y_e;
+  if(y_e == (null))/*bst_insert.sk21:119*/
   {
-    T_6.root = x_s9_b;
+    T_a.root = x_s17_f;
   }
   else
   {
-    if((x_s9_b.key) < (y_a.key))/*bst_insert.sk13:96*/
+    if((x_s17_f.key) < (y_e.key))/*bst_insert.sk21:128*/
     {
-      y_a.left = x_s9_b;
+      y_e.left = x_s17_f;
     }
-    if((x_s9_b.key) >= (y_a.key))/*bst_insert.sk13:100*/
+    if((x_s17_f.key) >= (y_e.key))/*bst_insert.sk21:132*/
     {
-      y_a.right = x_s9_b;
+      y_e.right = x_s17_f;
     }
   }
-  x_s9_b.p = y_a;
-  _out_8 = 0;
-  int _tmprhs_s1 = T_6.root.key;
-  x_s9_b.key = _tmprhs_s1;
-  int _tmprhs_s4 = (T_6.size) + 1;
-  T_6.size = _tmprhs_s4;
-  x_s9_b.key = k_7_0 - 0;
+  T_a.size = (T_a.size) + 1;
+  _out_c = 0;
   return;
 }
-/*bst_insert.sk13:122*/
+/*bst_insert.sk21:147*/
 
-void newBST (ref BST _out_5)/*bst_insert.sk13:122*/
+void newBST (ref BST _out_9)/*bst_insert.sk21:147*/
 {
-  _out_5 = null;
-  _out_5 = new BST();
-  _out_5.root = null;
-  _out_5.size = 0;
+  _out_9 = null;
+  _out_9 = new BST();
+  _out_9.root = null;
+  _out_9.size = 0;
   return;
 }
-/*bst_insert.sk13:132*/
+/*bst_insert.sk21:157*/
 
-void newNode (int val_c, ref Node _out_d)/*bst_insert.sk13:132*/
+void newNode (int val_10, ref Node _out_11)/*bst_insert.sk21:157*/
 {
-  _out_d = null;
-  _out_d = new Node();
-  _out_d.key = val_c;
-  _out_d.left = null;
-  _out_d.right = null;
-  _out_d.p = null;
+  _out_11 = null;
+  _out_11 = new Node();
+  _out_11.key = val_10;
+  _out_11.left = null;
+  _out_11.right = null;
+  _out_11.p = null;
   return;
 }
 /* END PACKAGE ANONYMOUS*/

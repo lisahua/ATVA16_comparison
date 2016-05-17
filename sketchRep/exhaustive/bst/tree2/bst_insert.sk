@@ -50,8 +50,8 @@ bit insert_bst (BST T, int k) {
         if (x.key >= y.key) 
             y.right =x;
     }
-    x.p = y;
-    //T.size = T.size +1;
+   // x.p = y;
+    T.size = T.size +1;
     return 0;
 }
 
@@ -98,4 +98,6 @@ harness void insertHarness() {
     assert _res == 0;
     assert bst.size ==3;
 }
+
+
 
