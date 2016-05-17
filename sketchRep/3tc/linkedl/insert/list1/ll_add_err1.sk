@@ -37,7 +37,7 @@ void insertSort (LinkedList l, int v) {
 }
 
 harness void insertHarness() {
-    //Empty
+        //Empty
     LinkedList l = null;
     l = newList();
     assert l.head.next == l.head;

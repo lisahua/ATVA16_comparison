@@ -37,35 +37,29 @@ bit hasLoop(LinkedList l) {
 }
 
 harness void insertHarness() {
-    //Empty
-    LinkedList l = null;
-    l = newList();
-    assert hasLoop(l) == 1;
-    assert l.head.next == l.head;
-
-    //insert 22
+        //insert 1
      l = newList();
     Entry n1 = new Entry();
-    n1.element = 22;
+    n1.element = 1;
     n1.next = l.head;
     l.head.next = n1;
     assert hasLoop(l)==1;
-    assert l.head.next.element == 22;
+    assert l.head.next.element == 1;
     assert l.head.next.next ==l.head;
 
     //insert bug
      n1.next = n1;
     assert hasLoop(l)==0;
-    //insert 22,3
+    //insert 1,2
     l = newList();
     n1 = new Entry();
-    n1.element = 22;
+    n1.element = 1;
     Entry n2 = new Entry();
-    n2.element = 3;
+    n2.element = 2;
     
-    l.head.next = n2;
-    n2.next = n1;
-    n1.next = l.head;
+    l.head.next = n1;
+    n1.next = n2;
+    n2.next = l.head;
     
     assert hasLoop(l)==1;
     assert l.head.next == n2;
@@ -73,26 +67,6 @@ harness void insertHarness() {
     assert l.head.next.next.next ==l.head;
     
     //insert bug
-    n1.next = n2;
-    assert hasLoop(l)==0;
-    
-    
-    l = newList();
-    n1 = new Entry();
-    n1.element = 22;
-    n2 = new Entry();
-    n2.element = 3;
-    Entry n3 = new Entry();
-    n3.element = 5;
-    
-    l.head.next = n3;
-    n3.next = n2;
-    n2.next = n1;
-    n1.next = l.head;
-    
-    assert hasLoop(l)==1;
-    
-    //insert bug
-    n1.next = n3;
+    n2.next = n2;
     assert hasLoop(l)==0;
 }

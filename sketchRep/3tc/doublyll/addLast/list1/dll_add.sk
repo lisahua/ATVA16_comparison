@@ -49,7 +49,7 @@ void addLast(LinkedList l, int v) {
 
 
 harness void addLastHarness() {
-     //Empty
+          //Empty
      LinkedList l = newList();
      assert l.size ==0;
      assert l.head.next == l.head;
@@ -57,41 +57,23 @@ harness void addLastHarness() {
      
      //insert 1
      l = newList();
-     addLast(l,8);
-     assert l.head.next.element ==8;
+     addLast(l,1);
      assert l.head.next.previous == l.head;
      assert l.head.next.next == l.head;
      assert l.size ==1;
+     assert l.head.next.element ==1;
      
      //insert 2
      l = newList();
-     addLast(l,8);
-     addLast(l,5);
-     assert l.head.next.element ==8;
+     addLast(l,1);
+     addLast(l,2);
+     assert l.head.next.element ==1;
      assert l.head.next.previous == l.head;
-     assert l.head.next.next.element == 5;
+     assert l.head.next.next.element == 2;
      
-     assert l.head.next.next.element ==5;
-     assert l.head.next.next.previous.element == 8;
+     assert l.head.next.next.element ==1;
+     assert l.head.next.next.previous.element == 2;
      assert l.head.next.next.next == l.head;     
      assert l.size ==2;
-     
-      //insert 3
-     l = newList();
-     addLast(l,8);
-     addLast(l,5);
-     addLast(l,13);
-     assert l.head.next.element ==8;
-     assert l.head.next.previous == l.head;
-     assert l.head.next.next.element == 5;
-     
-     assert l.head.next.next.element ==5;
-     assert l.head.next.next.previous.element == 8;
-     assert l.head.next.next.next.element == 13;    
-     
-     assert l.head.next.next.next.element ==13;
-     assert l.head.next.next.next.previous.element == 5;
-     assert l.head.next.next.next.next == l.head; 
-     assert l.size ==3;
 }
 

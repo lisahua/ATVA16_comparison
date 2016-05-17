@@ -41,70 +41,28 @@ void reverse(LinkedList l) {
 
 
 harness void insertHarness() {
-    //Empty
+         //Empty
     LinkedList l = null;
     l = newList();
-    assert l.head == null;
+    reverse(l);
+    assert l.head.next == l.head;
     assert l.size ==0;
 
     //insert 22
      l = newList();
-    Entry n1= new Entry();
-    n1.element = 22;
-    l.head = n1;
-    l.size = 1;
-    assert l.head.element == 22;
-    assert l.head.next ==null;
-    assert l.size ==1;
-    
+    insertSort(l,22);
     reverse(l);
-    assert l.head.element == 22;
-    assert l.head.next == null;
+    assert l.head.next.element == 22;
+    assert l.head.next.next ==l.head;
     assert l.size ==1;
 
     //insert 0,-3;
      l = newList();
-    n1= new Entry();
-    n1.element = -3;
-    l.head = n1;
-    Entry n2 = new Entry();
-    n2.element = 0;
-    n1.next = n2;
-    l.size = 2;
-    assert l.head.element == -3;
-    assert l.head.next.element ==0;
-    assert l.head.next.next == null;
-    assert l.size ==2;
-    
+    insertSort(l,0);
+    insertSort(l,-3);
     reverse(l);
-    assert l.head.element == 0;
-    assert l.head.next.element ==-3;
-    assert l.head.next.next == null;
+    assert l.head.next.element == 0;
+    assert l.head.next.next.element == -3;
+    assert l.head.next.next.next == l.head;
     assert l.size ==2;
-
-      //insert 1,2,3;
-     l = newList();
-    n1= new Entry();
-    n1.element = 1;
-    l.head = n1;
-    n2 = new Entry();
-    n2.element = 2;
-    n1.next = n2;
-    Entry n3 = new Entry();
-    n3.element = 3;
-    n2.next = n3;
-    l.size = 3;
-    
-    assert l.head.element == 1;
-    assert l.head.next.element ==2;
-    assert l.head.next.next.element == 3;
-     assert l.head.next.next.next ==null;
-    assert l.size ==3;
-    
-    reverse(l);
-    assert l.head.element == 3;
-    assert l.head.next.element ==2;
-    assert l.head.next.next.element == 1;
-     assert l.head.next.next.next == null;
-    assert l.size ==3;
 }

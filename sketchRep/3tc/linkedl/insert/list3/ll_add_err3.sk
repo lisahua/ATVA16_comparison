@@ -49,12 +49,12 @@ harness void insertHarness() {
     assert l.head.next.next ==l.head;
     assert l.size ==1;
 
-    //insert 3,3;
+    //insert 0,-3;
      l = newList();
-    insertSort(l,3);
-    insertSort(l,3);
-    assert l.head.next.element == 3;
-    assert l.head.next.next.element == 3;
+    insertSort(l,0);
+    insertSort(l,-3);
+    assert l.head.next.element == -3;
+    assert l.head.next.next.element == 0;
     assert l.head.next.next.next == l.head;
     assert l.size ==2;
 }

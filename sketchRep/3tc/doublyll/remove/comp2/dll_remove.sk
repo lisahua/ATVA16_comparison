@@ -64,131 +64,36 @@ int remove(LinkedList l, int v) {
 
 
 harness void removeHarness() {
-     //Empty
-     LinkedList l = newList();
-     assert l.size ==0;
-     assert l.head.next == l.head;
-     assert l.head.previous == l.head;
-     
-     //remove from empty list
+         //remove from 1 list
      l = newList();
-     assert remove(l,8) ==1;
+     addFirst(l,1);
+     assert remove(l,1) ==1;
      assert l.head.next == l.head;
      assert l.head.previous == l.head;
      assert l.size ==0;
      
-     //remove from 1 list
+     //remove from 1 list, not exist
      l = newList();
-     addFirst(l,8);
-     assert remove(l,8) ==0;
+     addFirst(l,2);
+     assert remove(l,1) ==0;
      assert l.head.next == l.head;
      assert l.head.previous == l.head;
-     assert l.size ==0;
-     
-       //remove from 2 list,exist
-     l = newList();
-     addFirst(l,8);
-     addFirst(l,5);
-     assert remove(l,5) ==0;
-     assert l.head.next.element == 8;
-     assert l.head.next.next == l.head;
-     assert l.head.next.previous == l.head;
      assert l.size ==1;
      
-     
-     //remove from 2 list, exist
+     //remove from 3, first
      l = newList();
-     addFirst(l,5);
-     addFirst(l,8);
-     assert remove(l,5) ==0;
-     assert l.head.next.element == 8;
-     assert l.head.next.next == l.head;
+     addFirst(l,1);
+     addFirst(l,2);
+     addFirst(l,3);
+     
+     assert remove(l,1) ==1;
+     assert l.head.next.element ==3;
      assert l.head.next.previous == l.head;
-     assert l.size ==1;
+     assert l.head.next.next.element == 2;
      
-     //remove from 2 list, not exist
-     l = newList();
-     addFirst(l,5);
-     addFirst(l,8);
-     assert remove(l,13) ==1;
-     assert l.head.next.element == 8;
-     assert l.head.next.next.element == 5;
-     assert l.head.next.previous == l.head;
-     
-     assert l.head.next.next.element == 5;
-     assert l.head.next.next.next == l.head;
-     assert l.head.next.next.previous.element == 8;
-     
-     assert l.size ==2;
-     
-     
-     //remove from 3, middle
-     l = newList();
-     addFirst(l,5);
-     addFirst(l,8);
-     addFirst(l,13);
-     
-     assert remove(l,8) ==0;
-     assert l.head.next.element ==13;
-     assert l.head.next.previous == l.head;
-     assert l.head.next.next.element == 5;
-     
-     assert l.head.next.next.element ==5;
-     assert l.head.next.next.previous.element == 13;
+     assert l.head.next.next.element ==2;
+     assert l.head.next.next.previous.element == 3;
      assert l.head.next.next.next == l.head;     
      assert l.size ==2;
-     
-   //remove from 3, last
-     l = newList();
-     addFirst(l,5);
-     addFirst(l,8);
-     addFirst(l,13);
-     
-     assert remove(l,5) ==0;
-     assert l.head.next.element ==13;
-     assert l.head.next.previous == l.head;
-     assert l.head.next.next.element == 8;
-     
-     assert l.head.next.next.element ==8;
-     assert l.head.next.next.previous.element == 13;
-     assert l.head.next.next.next == l.head;     
-     assert l.size ==2;
-     
-        //remove from 3, first
-     l = newList();
-     addFirst(l,5);
-     addFirst(l,8);
-     addFirst(l,13);
-     
-     assert remove(l,13) ==0;
-     assert l.head.next.element ==8;
-     assert l.head.next.previous == l.head;
-     assert l.head.next.next.element == 5;
-     
-     assert l.head.next.next.element ==5;
-     assert l.head.next.next.previous.element == 8;
-     assert l.head.next.next.next == l.head;     
-     assert l.size ==2;
-     
-     //remove from 3, not exist
-     l = newList();
-     addFirst(l,5);
-     addFirst(l,8);
-     addFirst(l,13);
-     
-     assert remove(l,4) ==1;
-     assert l.head.next.element ==13;
-     assert l.head.next.previous == l.head;
-     assert l.head.next.next.element == 8;
-     
-     assert l.head.next.next.element ==8;
-     assert l.head.next.next.previous.element == 13;
-     assert l.head.next.next.next.element == 5;  
-     
-     assert l.head.next.next.next.element ==5;
-     assert l.head.next.next.next.previous.element == 8;
-     assert l.head.next.next.next.next == l.head;  
-     
-     assert l.size ==3;
 }
 
